@@ -62,13 +62,9 @@ body, html
 	color: white;
 }
 
-.titleLoginPanel{
-  background: linear-gradient(70deg, black 46.7%, #363636 52%);	
-}
-
 .loginUserPanel {
 	margin-top: -10px;
-	background: linear-gradient(70deg, black 55%, #363636 60%);
+	background: linear-gradient(70deg, black 40%, #363636 40%);
 }
 
 .formControlLoginTam {
@@ -79,7 +75,6 @@ body, html
 /* CADASTRO */
 
 .formulario-de-evento {
-	
 	width: 600px;
 	background-color: #E8E8E8;
 }
