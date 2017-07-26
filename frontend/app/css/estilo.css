@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body
+{
+    background:#ecf0f1;
+    
+}
+body, html
+{
+    height:100%;
+}
+
+
+/* MENU PRINCIPAL */
+.menu-principal {
+	list-style: none;
+	position: relative;
+	
+}
+.menu-principal li {
+	display: inline-block;
+	padding: 18px 20px 8px 8px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 9pt;
+}
+.menu-principal li a {
+	color: white;
+	text-decoration: none;
+	padding: 5px;
+}
+
+.info-menu {
+	background-color: rgb(0,128,181);
+}
+
+/*.menu-principal li a:hover {
+	background-color: rgb(0,128,181);
+	transition-duration: 0.4s;
+}*/
+
+/* MENU LATERAL */
+
+
+
+/* PAINEL DE LOGIN */
+
+.block-image {
+	margin-left: auto;
+    margin-right: auto;
+    width: 10em
+}
+
+.loginPanel{
+	width: 420px;
+	height: 300px;
+	margin: 80px auto 0px;
+	font-family: Verdana;
+}
+
+.title {
+    font-family: Verdana;
+	color: white;
+}
+
+.titleLoginPanel{
+  background: linear-gradient(70deg, black 46.7%, #363636 52%);	
+}
+
+.loginUserPanel {
+	margin-top: -10px;
+	background: linear-gradient(70deg, black 55%, #363636 60%);
+}
+
+.formControlLoginTam {
+	padding-top: 15px;
+	width: 300px;
+}
+
+/* CADASTRO */
+
+.formulario-de-evento {
+	
+	width: 600px;
+	background-color: #E8E8E8;
+}
+
+.titulo-formulario {
+	background-color: #337ab7;
+	color: white;
+}
+
+/*LISTA DE EVENTOS*/
+
+.tabela-lista {
+	border-collapse: collapse;
+	text-align: center;
+	width: 100em;
+    border: 1px solid #666; 
+	font-family: Myraid ,Pro Frutiger, "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Verdana, sans-serif;
+}
+
+.tabela-lista th {
+  font-weight: normal;
+  text-align: center;
+  padding: 0.1em 1em;
+}
+
+.tabela-lista tr {
+	padding: 0.1em 1em;
+}
+
+.tabela tbody tr:nth-child(even) {
+    background-color: #CCC;
+}
+
+/*.corpo-tabela-lista:hover {
+	background-color:#3d80df;
+	color: #fff;
+}*/
+
+.tbody_div_tr_conteudo {
+   float: left;
+}
+
+.tbody_div_tr_botoes {
+   float: right;
+}
+
+thead {
+  background: #ccc url(https://www.devfuria.com.br/html-css/tabelas/bar.gif) repeat-x left center;
+  border-top: 1px solid #a5a5a5;
+  border-bottom: 1px solid #a5a5a5;
+}
+
+thead tr:hover {
+  background-color: transparent;
+  color: inherit;
+}
+
+.even {
+	background-color: #CCC;
+}

@@ -1,0 +1,29 @@
+<form class="loginForm" ng-submit="vm.login()">
+  <div class="loginPanel">
+
+      <div class="titleLoginPanel">
+        <div class="block-image">
+          <img class="logo-mp" ng-src="components/images/logo_mprj.png"/>
+          
+        </div>
+        <div align="center">
+          <p class="title">Sistema de cadastro de eventos</p>
+        </div>
+      </div>  
+
+      <div class="loginUserPanel" align="center">
+
+        <div class="formControlLoginTam">
+          <input  class="form-control" type="text" ng-model="vm.credentials.username" placeholder="Usuário"/><br/>
+          <input  class="form-control" type="password" ng-model="vm.credentials.password" placeholder="Senha"/><br/>
+        </div>
+
+        <div align="center"> 
+            <button class="btn btn-default" type="submit">Entrar</button>
+            <input class="btn btn-default" type="button" value="Limpar" ng-click="vm.limpaUsuario()">
+        </div>
+
+     </div>
+  
+  </div>
+</form>

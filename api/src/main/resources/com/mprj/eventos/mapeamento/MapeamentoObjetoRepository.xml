@@ -1,0 +1,46 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mprj.eventos.mapeamento.MapeamentoObjetoRepository">
+
+    <!--<resultMap id="retornaListaUsuario" type="com.mprj.eventos.model.Usuario">-->
+        <!--<id property="id" column="id"/>-->
+        <!--<result property="nome" column="nome"/>-->
+        <!--<result property="email" column="email"/>-->
+    <!--</resultMap>-->
+
+    <resultMap id="loginUsuario" type="com.mprj.eventos.model.Usuario">
+        <id property="id" column="id"/>
+        <result property="nome" column="nome"/>
+        <result property="email" column="email"/>
+    </resultMap>
+
+    <resultMap id="retornaListaDeEventos" type="com.mprj.eventos.model.Evento">
+        <id property="id" column="id"></id>
+        <result property="solicitante" column="solicitante"/>
+        <result property="telefone" column="telefone"/>
+        <result property="titulo" column="titulo"/>
+        <result property="data" column="data"/>
+        <result property="local" column="local"/>
+        <result property="inicio" column="inicio"/>
+        <result property="termino" column="termino"/>
+        <result property="presencaTecnico" column="presenca_tecnico"/>
+        <result property="status" column="status"/>
+        <result property="registro" column="registro"/>
+        <result property="observacao" column="observacao"/>
+    </resultMap>
+
+    <resultMap id="retornaEventoPorId" type="com.mprj.eventos.model.Evento">
+        <id property="id" column="id"></id>
+        <result property="solicitante" column="solicitante"/>
+        <result property="telefone" column="telefone"/>
+        <result property="titulo" column="titulo"/>
+        <result property="data" column="data"/>
+        <result property="local" column="local"/>
+        <result property="inicio" column="inicio"/>
+        <result property="termino" column="termino"/>
+        <result property="presencaTecnico" column="presenca_tecnico"/>
+        <result property="status" column="status"/>
+        <result property="registro" column="registro"/>
+        <result property="observacao" column="observacao"/>
+    </resultMap>
+
+</mapper>

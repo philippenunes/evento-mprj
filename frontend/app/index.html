@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appEvento">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MPRJ - Eventos</title>  
+	<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./bower_components/angular-toastr/dist/angular-toastr.css">
+	<link rel="stylesheet" type="text/css" href="./bower_components/angular-block-ui/dist/angular-block-ui.css" />
+	<link rel="stylesheet" type="text/css" href="./css/estilo.css">
+</head>
+
+<body>
+
+<div class="navbar navbar-static-top navbar-inverse">
+	<div class="navbar-inner">
+		<div class="container">
+			<div class="nav-bar">
+				<ul class="menu-principal">
+					<li ng-show="authenticated"><a href ui-sref="home">HOME</a></li>
+					<li><a href ui-sref="cadastrar">CADASTRAR</a></li>
+					<li><a href ui-sref="listar">LISTAR</a></li>
+					<li><a href ui-sref="suporte">SUPORTE</a></li>3
+					<li ng-show="authenticated"><a href ui sref="sair">LOGOUT</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<br><br><br>
+
+<div ui-view class="container-fluid" align="center"></div>
+
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/angular/angular.min.js"></script>
+<script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="../bower_components/angular-block-ui/dist/angular-block-ui.js"></script>
+<script src="../bower_components/angular-spinkit/build/angular-spinkit.min.js"></script>
+<script src="../bower_components/angular-file-saver/dist/angular-file-saver.bundle.js"></script>
+<script src="./module.js"></script>
+<script src="./app-route.js"></script>
+<script src="../bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+
+<script src="./components/evento/eventoCadastro/cadastro-evento-controller.js"></script> 
+<script src="./components/evento/eventoLista/lista-evento-controller.js"></script>
+<script src="./components/evento/eventoLista/modal-exclui-confirmacao.js"></script>
+<script src="./components/evento/eventoAltera/altera-evento-controller.js"></script> 
+<script src="./components/evento/eventoAltera/modal-confirma-alteracao.js"></script> 
+<script src="./components/evento/eventoService/evento-service.js"></script>    
+<script src="./components/user/user-login-controller.js"></script>
+<script src="./components/user/user-info-controller.js"></script>
+<script src="./components/user/user-service.js"></script>  	  
+	    	  	 	
+</body>
+</html>

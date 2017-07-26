@@ -1,0 +1,82 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mprj.eventos.repository.EventoRepository">
+
+    <sql id="insertEvento">
+        <![CDATA[
+           INSERT INTO evento
+           (solicitante, telefone, titulo, data, local, inicio,
+            termino, presenca_tecnico, status, registro, observacao)
+           VALUES
+           (#{evento.solicitante}, #{evento.telefone}, #{evento.titulo}, #{evento.data}, #{evento.local}, #{evento.inicio},
+            #{evento.termino}, #{evento.presencaTecnico}, #{evento.status}, #{evento.registro}, #{evento.observacao})
+        ]]>
+    </sql>
+
+    <sql id="updateEvento">
+        <![CDATA[
+           UPDATE evento
+           SET
+           solicitante = #{evento.solicitante},
+           telefone = #{evento.telefone},
+           titulo = #{evento.titulo},
+           data = #{evento.data},
+           local = #{evento.local},
+           inicio = #{evento.inicio},
+           termino =  #{evento.termino},
+           presenca_tecnico = #{evento.presencaTecnico},
+           status = #{evento.status},
+           registro = #{evento.registro},
+           observacao = #{evento.observacao}
+           WHERE id = #{evento.id}
+        ]]>
+    </sql>
+
+    <sql id="selectEvento">
+        <![CDATA[
+            SELECT *
+            FROM
+            evento
+        ]]>
+    </sql>
+
+    <sql id="deleteEvento">
+        <![CDATA[
+          DELETE FROM
+          evento
+          WHERE
+          id = #{id}
+        ]]>
+    </sql>
+
+    <select id="retornaListaDeEventos" resultMap="com.mprj.eventos.mapeamento.MapeamentoObjetoRepository.retornaListaDeEventos">
+        <include refid="selectEvento"/>
+    </select>
+
+    <select id="retornaEventoPorId" resultMap="com.mprj.eventos.mapeamento.MapeamentoObjetoRepository.retornaEventoPorId">
+        <include refid="selectEvento"/>
+        WHERE id = #{id}
+    </select>
+
+    <insert id="cadastroEvento">
+        <include refid="insertEvento"/>
+    </insert>
+
+    <delete id="removeEvento">
+        <include refid="deleteEvento"/>
+    </delete>
+
+    <update id="alteraEvento">
+        <include refid="updateEvento"/>
+    </update>
+
+</mapper>
+
+
+
+
+
+
+
+
+

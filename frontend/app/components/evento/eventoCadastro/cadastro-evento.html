@@ -1,0 +1,15 @@
+<div class="body-cadastrar">
+
+<!--<p align="center" class="alert alert-success" ng-show="vm.cadastroSuccess">
+	<b>Evento cadastrado com sucesso!</b>
+</p>
+<p align="center" class="alert alert-danger" ng-show="vm.cadastroSuccess === false">
+	<b>Não foi possível inserir o evento, verifique o campos!</b>
+</p>-->
+
+	<div align="center" class="formulario-de-evento">
+		<div ng-include="'components/evento/formulario.html'"></div>
+		<input class="btn btn-primary" type="button" value="Cadastrar" ng-disable="frmEvento.$pristine" ng-click="vm.cadastraEvento()"/>
+	</div>	
+</div>		
+

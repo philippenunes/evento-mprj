@@ -1,0 +1,117 @@
+<form class="form" name="frmEvento">
+		<table class="table">
+			<caption class="titulo-formulario">Formulário de evento</caption>
+			<tr>
+				<td>Nome Solicitante</td>
+				<td><input required="required" class="form-control" type="text" placeholder="Solicitante"
+				 maxlength="50" ng-model="vm.evento.solicitante"/></td>
+			</tr>
+			<tr>
+				<td>Telefone de contato</td>
+				<td><input class="form-control" type="tel" placeholder="(55) 5555-5555"
+				 maxlength="12" ng-model="vm.evento.telefone"/></td>
+			</tr>
+			<tr>
+				<td>Nome do evento</td>
+				<td><input required="required" class="form-control" type="text" placeholder="Nome do evento"
+				 maxlength="200" ng-model="vm.evento.titulo"/></td>
+			</tr>
+			<tr>
+				<td>Data</td>
+				<td><input required="required" class="form-control" type="date" placeholder="Data"
+				ng-model="vm.evento.data"/></td>
+			</tr>
+			<tr>
+				<td>Local</td>
+				<td><input required="required" class="form-control" type="text" placeholder="Local"
+				 maxlength="200" ng-model="vm.evento.local"/></td>
+			</tr>
+			<tr>
+				<td>Horario início</td>
+				<td><input required="required" class="form-control" type="text" placeholder="Inicio"
+				 maxlength="8" ng-model="vm.evento.inicio"/></td>
+			</tr>
+			<tr>
+				<td>Horario término</td>
+				<td><input class="form-control" type="text" placeholder="Término"
+				 maxlength="8" ng-model="vm.evento.termino"/></td>
+			</tr>
+			<tr>
+				<td>Presença do técnico</td>
+				<td><select class="form-control" ng-model="vm.evento.presencaTecnico">
+					    <option selected value="">Selecione...</option>
+						<option value="Acionamento Telefone">Acionar por telefone</option>
+						<option value="Parcial">Parcial/Inicio</option>
+						<option value="Integral">Integral</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Status</td>
+				<td><select class="form-control" ng-model="vm.evento.status">
+					    <option selected value="">Selecione...</option>
+						<option value="Em andamento">Em andamento</option>
+						<option value="Pendente documentação">Pendente documentação</option>
+						<option value="Resolvido">Resolvido</option>
+				</select></td>
+			</tr>
+			<!--<tr>
+				<td>Notebook <select ng-model="vm.evento.notebook">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="2">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="27">28</option>
+						<option value="27">29</option>
+						<option value="27">30</option>
+				</select></td>
+				<td>&emsp;Impressora&emsp; <select ng-model="vm.evento.impressora">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="2">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+				</select></td>
+			</tr>-->
+			<tr>
+				<td>Registro</td>
+				<td><input type="number" placeholder="Nº do registro"
+				 maxlength="10" ng-model="vm.evento.registro"/></td>
+			</tr>
+			<tr>
+				<td>Observações</td>
+				<td><textarea class="form-control" placeholder="Informações adicionais" name="observacao"
+				 ng-model="vm.evento.observacao"></textarea></td>
+			</tr>
+	        <!--<tr>
+				<td>
+					<input type="button" value="{{btnCadastrar}}" ng-click="vm.cadastraEvento()"/>
+				</td>
+				<td></td>
+			</tr>-->
+		</table>
+	</form>

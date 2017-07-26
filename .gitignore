@@ -1,0 +1,13 @@
+.idea/
+target/
+*.class
+*.war
+*.jar
+*.iml
+*.ipr
+.classpath
+.project
+.settings/
+node_modules/
+
+jboss.server.log.dir_IS_UNDEFINED/

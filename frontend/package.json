@@ -1,0 +1,34 @@
+{
+  "name": "angular-spring-security-auth-sample",
+  "version": "3.0.0",
+  "description": "angular-spring-security-auth-sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lennonjesus/angular-spring-security.git"
+  },
+  "keywords": [
+    "angularjs",
+    "spring-security",
+    "rest",
+    "auth"
+  ],
+  "author": "Lennon Jesus <lennon.jesus@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "2.18.8",
+    "gulp": "3.9.1",
+    "jasmine-core": "^2.6.4",
+    "karma": "1.4.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "1.1.0",
+    "proxy-middleware": "0.15.0"
+  },
+  "bugs": {
+    "url": "https://github.com/lennonjesus/angular-spring-security-auth-sample/issues"
+  },
+  "homepage": "https://github.com/lennonjesus/angular-spring-security-auth-sample#readme"
+}
