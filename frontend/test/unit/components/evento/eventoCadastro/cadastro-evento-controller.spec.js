@@ -33,13 +33,6 @@
     it("Deve criar object com sucesso", () => {
       expect(vm).toBeDefined();
     });    
-
-    it("Deve cadastrar um evento no banco", () => {
-      
-      
-    });
-
-
   });
 })();
 
