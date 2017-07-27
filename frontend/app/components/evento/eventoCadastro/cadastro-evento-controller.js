@@ -27,12 +27,13 @@
         .then(getCadastroSuccess)
         .catch(getCadastroError);
 
-        function getCadastroSuccess() {
+        function getCadastroSuccess(data) {
+         vm.evento = data;
          toastr.success('Evento cadastrado!', 'Sucesso :)'); 
         }
 
         function getCadastroError() {
-          if(isEmpty(vm.evento) == true) {
+        if(!vm.evento) {
             toastr.warning('Preencha os campos!', 'Erro :(');
          }else {
              toastr.error('Verifique os campos!', 'Erro ao cadastrar :(');
@@ -42,3 +43,4 @@
      }
     }
 })();
+

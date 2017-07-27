@@ -24,11 +24,13 @@
                 .catch(getCadastroError);
 
             function getCadastroSuccess(response) {
-                 return response.data;
+                return response.data;
             }    
             function getCadastroError(err) {
-                 logger.error('XHR Failed for alteraEvento.' + error.data);
+                //logger.error('XHR Failed for alteraEvento.' + error.data);
+                return Promise.reject();                
             }
+            
             return promise;
         }
 
@@ -41,6 +43,7 @@
                     return response.data;
                 }    
                 function getAlteraError(err) {
+                    return err.data;
                      logger.error('XHR Failed for alteraEvento.' + error.data);
                 }
             return promise;

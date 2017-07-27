@@ -29,8 +29,8 @@ public class EventoController {
     @RequestMapping(method = RequestMethod.POST, value = "/eventos",
     consumes = MediaType.APPLICATION_JSON_VALUE)
     public void castrarEvento(@RequestBody Evento evento){
-
-         eventoService.inserir(evento);
+         throw new IllegalArgumentException();
+         //eventoService.inserir(evento);
     }
 
     //LISTA
