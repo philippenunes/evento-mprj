@@ -33,7 +33,8 @@
     "angular-spinkit": "v0.0.2.1",
     "angular-animate": "latest",
     "angular-file-saver": "latest",
-    "angular-mocks": "1.6.5"
+    "angular-mocks": "1.6.5",
+    "angular-material-icons": "^0.7.1"
   },
   "devDependencies": {}
 }

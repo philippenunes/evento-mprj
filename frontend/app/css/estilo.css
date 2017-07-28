@@ -30,7 +30,7 @@ body, html
 
 .menu-principal {
 	list-style: none;
-	position: relative;
+	float: right;
 }
 .menu-principal li {
 	display: inline-block;
@@ -62,14 +62,16 @@ body, html
 	font-family: Verdana;
 }
 
-.title {
-    font-family: Verdana;
-	color: white;
-}
-
 .loginUserPanel {
 	margin-top: -10px;
 	background: linear-gradient(70deg, black 40%, #363636 40%);
+}
+
+.loginTitlePanel {
+	background-color: #337ab7;
+	color: white;
+	font-size: 18pt;
+	padding: 10pt;
 }
 
 .formControlLoginTam {

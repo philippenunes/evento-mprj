@@ -60,12 +60,12 @@
             }).result
             .then( (data) => {
                  if( data === true) {
-                   toastr.success('Registro excluído!', 'Sucesso :)');
+                   toastr.success('Registro excluído!', 'Sucesso');
                  } 
                  listaEventos();
             })
             .catch( () => {
-                 toastr.error('O registro não foi excluído!', 'Erro :(');
+                 toastr.error('O registro não foi excluído!', 'Erro');
                  listaEventos();  
             })
         }
@@ -83,7 +83,7 @@
             }
 
             function getListaError() {
-                toastr.error('O servidor não está respondendo!', 'Ocorreu um erro :(');
+                toastr.error('O servidor não está respondendo!', 'Ocorreu um erro');
             }
         }
 
@@ -92,7 +92,7 @@
             eventoService.exportarExcel()
             .then( function (data) {
                 if (data !== null && data.size === 0) {
-                    toaster.pop('Ocorreu um erro :(', 'Não foi possível exportar o arquivo!');
+                    toaster.pop('Ocorreu um erro', 'Não foi possível exportar o arquivo!');
                 } else {
                     var blob = new Blob([data], {type: 'application/vnd.ms-excel'});
                     FileSaver.saveAs(blob, 'relatorio-eventos.xlsx');

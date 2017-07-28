@@ -27,8 +27,7 @@
                 return response.data;
             }    
             function getCadastroError(err) {
-                //logger.error('XHR Failed for alteraEvento.' + error.data);
-                return Promise.reject();                
+                logger.error('XHR Failed for alteraEvento.' + error.data);              
             }
             
             return promise;

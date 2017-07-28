@@ -1,12 +1,13 @@
 <form class="loginForm" ng-submit="vm.login()">
   <div class="loginPanel">
 
-      <div class="loginUserPanel" align="center">
-      
-        <div align="center">
-          <p class="title">ÁREA RESTRITA</p>
+      <div class="loginTitlePanel">
+          <div align="center">
+            <p class="title">Área Restrita</p>
         </div>
-      
+      </div>
+      <div class="loginUserPanel" align="center">
+
         <div class="formControlLoginTam">
           <input  class="form-control" type="text" ng-model="vm.credentials.username" placeholder="Usuário"/><br/>
           <input  class="form-control" type="password" ng-model="vm.credentials.password" placeholder="Senha"/><br/>
