@@ -59,12 +59,12 @@
 
         $rootScope.$apply();
 
-        expect(toastrMock.warning).toHaveBeenCalledWith('Preencha os campos!', 'Erro :(');
+        expect(toastrMock.warning).toHaveBeenCalledWith('Preencha os campos!', 'Erro');
         expect(vm.cadastroSuccess).toBe(false);
   
     });
 
-      it("Deve chamar toaster error com cadastro errado", () => {
+      fit("Deve chamar toaster error com cadastro errado", () => {
                       
         var deferred = $q.defer();        
         deferred.reject();        
@@ -81,28 +81,27 @@
 
         $rootScope.$apply();
 
-        expect(toastrMock.error).toHaveBeenCalled();
+        expect(toastrMock.error).toHaveBeenCalledWith('Verifique os campos!', 'Erro ao cadastrar');
         expect(vm.cadastroSuccess).toBe(false);
   
     });
 
-     it("Deve chamar toaster success", () => {
+     it("Deve cadastrar com sucesso e chamar toaster", () => {
                       
-        var deferred = $q.defer();      
-        deferred.resolve();        
-
+       var deferred = $q.defer();        
+        deferred.resolve();    
+        
         spyOn(eventoServiceMock, 'cadastraEvento').and.returnValue(
-          deferred.promise
+          deferred.promise          
         );
         
         spyOn(toastrMock, 'success');
       
         vm.cadastraEvento();
 
-        $rootScope.$apply();
+        $rootScope.$apply();       
 
-        expect(toastrMock.success).toHaveBeenCalledWith('Evento cadastrado!', 'Sucesso :)');
-      
+        expect(toastrMock.success).toHaveBeenCalled();
     });
    
     

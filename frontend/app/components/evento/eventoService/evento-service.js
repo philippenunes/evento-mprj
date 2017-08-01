@@ -5,7 +5,7 @@
         .module('appEvento')
         .factory('eventoService', eventoService);  
 
-    function eventoService($http, $q) {
+    function eventoService($http, $q, $log) {
 
         var eventoService = {
            cadastraEvento : cadastraEvento,
@@ -23,11 +23,12 @@
                 .then(getCadastroSuccess)
                 .catch(getCadastroError);
 
-            function getCadastroSuccess(response) {
+            function getCadastroSuccess(response) {            
                 return response.data;
             }    
-            function getCadastroError(err) {
-                logger.error('XHR Failed for alteraEvento.' + error.data);              
+            function getCadastroError(err) {                
+                $log.error(`Erro ao realizar o cadastro: ${err.data}`); 
+                return $q.reject();                
             }
             
             return promise;
@@ -49,21 +50,22 @@
         }
 
         function buscaEvento(evento) {
-            var promise = $http.get('http://localhost:8080/eventos/'+evento.id)
+            var promise = $http.get(`http://localhost:8080/eventos/${evento.id}`)
                 .then(getBuscaEventoSuccess)
                 .catch(getBuscaEventoError);
 
-                function getBuscaEventoSuccess(response) {
+                function getBuscaEventoSuccess(response) { 
+                    //$log.info(`evento retornado: ${response.data}`);                  
                     return response;
                 }
-                function getBuscaEventoError(error) {
+                function getBuscaEventoError(error) {                    
                     logger.error('XHR Failed for buscaEvento.' + error.data);
                 }
             return promise;
         }
 
         function excluiEvento(evento) {
-            var promise = $http.delete('http://localhost:8080/eventos/'+evento.id)
+            var promise = $http.delete(`http://localhost:8080/eventos/${evento.id}`)
                 .then(getExcluiSuccess)
                 .catch(getExcluiError);
                 
@@ -78,20 +80,19 @@
 
         function listaEventos() {
             var promise = $http.get('http://localhost:8080/eventos')
-                .then(getExcluiSuccess)
-                .catch(getExcluiError);
+                .then(getListaSuccess)
+                .catch(getListaError);
 
-                function getExcluiSuccess(response) {
+                function getListaSuccess(response) {
                     return response;
                 }
-                function getExcluiError(error) {
-                    logger.error('XHR Failed for listaEventos.' + error.data);
+                function getListaError(err) {
+                    $log.error(`Erro ao realizar o cadastro: ${err.data}`);
                 }
             return promise;    
         }
 
         function exportarExcel() {
-            console.log("ahnsadsdhkjjah");
              var promise = $http.get('http://localhost:8080/exportaeventos', {
               responseType: 'blob',
               headers:{

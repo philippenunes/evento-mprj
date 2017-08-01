@@ -19,7 +19,7 @@
 		})
 
     .state('login',{
-      url: '/login',
+      url: '/login/',
       templateUrl: '/components/user/user-login.html',
 			controller: 'userLoginController',
 			controllerAs: 'vm'
