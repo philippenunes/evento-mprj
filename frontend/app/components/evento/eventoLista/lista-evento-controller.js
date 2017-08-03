@@ -23,6 +23,7 @@
         vm.excluiEvento = excluiEvento;
         vm.buscaEvento = buscaEvento;
         vm.exportaExcel = exportaExcel;
+        vm.exportaPdf = exportaPdf;
         vm.eventoBuscado = {};
         vm.eventos = [];
 
@@ -101,5 +102,22 @@
               blockUI.stop();
             });
         }
+
+        function exportaPdf() {
+            blockUI.start();
+            eventoService.exportaPdf()
+            .then( function (data) {
+                if (data !== null && data.size === 0) {
+                    toaster.pop('Ocorreu um erro', 'Não foi possível exportar o arquivo!');
+                } else {
+                    var blob = new Blob([data], {type: 'application/pdf'});
+                    FileSaver.saveAs(blob, 'relatorio-eventos.pdf');
+                }
+            }).finally(function(){
+              blockUI.stop();
+            });
+        }
+
+        
     }
 })();

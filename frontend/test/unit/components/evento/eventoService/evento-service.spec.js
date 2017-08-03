@@ -67,8 +67,7 @@
         .whenGET(endpointChamada)
         .respond(200, evento)
 
-        eventoService.buscaEvento(evento).then(function(response) {
-            //expect($log.info.logs[0]).toEqual([`evento retornado: ${evento.id}`]);            
+        eventoService.buscaEvento(evento).then(function(response) {      
             expect(response.data).toEqual(evento);
         });
 
@@ -124,7 +123,6 @@
        executeRequestAndFlush();
 
     });
-
 
   });
 

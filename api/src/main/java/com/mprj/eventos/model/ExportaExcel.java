@@ -101,7 +101,7 @@ public class ExportaExcel {
             reiniciaIndiceColuna();
 
             CellUtil.createCell(linha, incrementaIndiceColuna(), listaEventos.get(i).getSolicitante());
-            CellUtil.createCell(linha, incrementaIndiceColuna(), listaEventos.get(i).getTelefone());
+            CellUtil.createCell(linha, incrementaIndiceColuna(), listaEventos.get(i).getContato());
             CellUtil.createCell(linha, incrementaIndiceColuna(), listaEventos.get(i).getTitulo());
             CellUtil.createCell(linha, incrementaIndiceColuna(), String.valueOf(listaEventos.get(i).getData()));
             CellUtil.createCell(linha, incrementaIndiceColuna(), listaEventos.get(i).getLocal());

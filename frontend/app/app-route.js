@@ -3,12 +3,8 @@
 
   appEvento.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
-  	$urlRouterProvider.otherwise('/login');
-  //	$locationProvider.html5Mode({
- 	//  enabled: true,
-  //	  requireBase: false
-//	});
-
+		$urlRouterProvider.otherwise('/login');
+		
   	$stateProvider
 
 		.state('home',{
@@ -19,7 +15,7 @@
 		})
 
     .state('login',{
-      url: '/login/',
+      url: '/login',
       templateUrl: '/components/user/user-login.html',
 			controller: 'userLoginController',
 			controllerAs: 'vm'

@@ -16,7 +16,7 @@
     <resultMap id="retornaListaDeEventos" type="com.mprj.eventos.model.Evento">
         <id property="id" column="id"></id>
         <result property="solicitante" column="solicitante"/>
-        <result property="telefone" column="telefone"/>
+        <result property="contato" column="telefone"/>
         <result property="titulo" column="titulo"/>
         <result property="data" column="data"/>
         <result property="local" column="local"/>
@@ -31,7 +31,7 @@
     <resultMap id="retornaEventoPorId" type="com.mprj.eventos.model.Evento">
         <id property="id" column="id"></id>
         <result property="solicitante" column="solicitante"/>
-        <result property="telefone" column="telefone"/>
+        <result property="contato" column="telefone"/>
         <result property="titulo" column="titulo"/>
         <result property="data" column="data"/>
         <result property="local" column="local"/>

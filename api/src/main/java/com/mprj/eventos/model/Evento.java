@@ -10,7 +10,7 @@ public class Evento {
     private int id;
 
     private String solicitante;
-    private String telefone;
+    private String contato;
     private String titulo;
     private Date data;
     private String local;
@@ -39,12 +39,12 @@ public class Evento {
         this.solicitante = solicitante;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getContato() {
+        return contato;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setContato(String contato) {
+        this.contato = contato;
     }
 
     public String getTitulo() {

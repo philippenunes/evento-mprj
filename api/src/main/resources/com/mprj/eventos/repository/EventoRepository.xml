@@ -8,7 +8,7 @@
            (solicitante, telefone, titulo, data, local, inicio,
             termino, presenca_tecnico, status, registro, observacao)
            VALUES
-           (#{evento.solicitante}, #{evento.telefone}, #{evento.titulo}, #{evento.data}, #{evento.local}, #{evento.inicio},
+           (#{evento.solicitante}, #{evento.contato}, #{evento.titulo}, #{evento.data}, #{evento.local}, #{evento.inicio},
             #{evento.termino}, #{evento.presencaTecnico}, #{evento.status}, #{evento.registro}, #{evento.observacao})
         ]]>
     </sql>
@@ -18,7 +18,7 @@
            UPDATE evento
            SET
            solicitante = #{evento.solicitante},
-           telefone = #{evento.telefone},
+           telefone = #{evento.contato},
            titulo = #{evento.titulo},
            data = #{evento.data},
            local = #{evento.local},

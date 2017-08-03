@@ -13,7 +13,8 @@
            buscaEvento : buscaEvento,
            excluiEvento : excluiEvento,
            listaEventos : listaEventos,
-           exportarExcel : exportarExcel
+           exportarExcel : exportarExcel,
+           exportaPdf : exportaPdf
         };
 
         return eventoService;
@@ -97,6 +98,18 @@
               responseType: 'blob',
               headers:{
                     Accept:'application/vnd.ms-excel'
+               }
+              }).then(function (response) {
+                   return response.data;
+              });
+                   return promise;
+          }
+
+          function exportaPdf() {
+             var promise = $http.get('http://localhost:8080/exportapdf', {
+              responseType: 'blob',
+              headers:{
+                    Accept:'application/pdf'
                }
               }).then(function (response) {
                    return response.data;

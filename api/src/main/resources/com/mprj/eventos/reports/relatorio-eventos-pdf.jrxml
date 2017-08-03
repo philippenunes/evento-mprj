@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio-eventos-pdf" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="messages" uuid="d4f62cb0-4b25-4718-8fd7-564a57bc78aa">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="net.sf.jasperreports.print.create.bookmarks" value="false"/>
+	<import value="com.mprj.eventos.*"/>
+	<style name="table_th" hTextAlign="Center" vTextAlign="Middle" markup="none" fontName="SansSerif" fontSize="12" isBold="true">
+		<box padding="2">
+			<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_td" hTextAlign="Center" vTextAlign="Middle" markup="none" isBlankWhenNull="true" fontName="SansSerif" fontSize="11">
+		<box padding="2">
+			<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="LOGO" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="solicitante" class="java.lang.String"/>
+	<field name="titulo" class="java.lang.String"/>
+	<field name="data" class="java.util.Date"/>
+	<field name="contato" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="144" splitType="Stretch">
+			<image>
+				<reportElement x="10" y="10" width="100" height="90" uuid="1ccb60cf-643f-43aa-b8bd-45a7f0517b2d"/>
+				<imageExpression><![CDATA[$P{LOGO}]]></imageExpression>
+			</image>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="460" y="10" width="100" height="30" uuid="6cda37e7-38ff-44f7-9711-6ad7f91c246d"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="10" width="100" height="30" uuid="1ae1365b-1637-4aa8-9e72-0b910ee629c3"/>
+				<textFieldExpression><![CDATA[$R{label.data.geracao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement key="" style="table_th" x="0" y="0" width="100" height="30" uuid="e5db3913-73bb-498b-b96f-555f3186a6c6"/>
+				<textFieldExpression><![CDATA[$R{label.solicitante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_th" x="100" y="0" width="100" height="30" uuid="4b826eaf-e765-4415-8023-faf2d9715699"/>
+				<textFieldExpression><![CDATA[$R{label.contato}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_th" x="200" y="0" width="100" height="30" uuid="6142e65f-0ee4-45ca-a860-b263e47987a8"/>
+				<textFieldExpression><![CDATA[$R{label.titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_th" x="300" y="0" width="100" height="30" uuid="de680390-9c97-478f-bb35-fa6531535f3b"/>
+				<textFieldExpression><![CDATA[$R{label.data}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement style="table_td" x="0" y="0" width="100" height="30" uuid="846c8f55-951f-4d40-a0ca-c4a4cd15754a"/>
+				<textFieldExpression><![CDATA[$F{solicitante}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_td" x="100" y="0" width="100" height="30" uuid="67ec1bed-a264-4696-99fb-47becc9f3b26"/>
+				<textFieldExpression><![CDATA[$F{contato}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_td" x="200" y="0" width="100" height="30" uuid="dc8f0f8b-a11f-44d0-8c1c-0a2daa711164"/>
+				<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_td" x="300" y="0" width="100" height="30" uuid="40b17b8d-a0be-4504-bcbe-65f1e6123c87"/>
+				<textFieldExpression><![CDATA[DateFormat.getDateInstance(DateFormat.SHORT, $P{REPORT_LOCALE}).format( $F{data} )]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="98b00c17-6bf7-448f-9bd8-d0601cb5a0f0"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$R{label.pagina} + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="100" y="0" width="100" height="30" uuid="36e416d9-1c4e-4afa-848d-19f5d8e2108c"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$R{label.de} + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

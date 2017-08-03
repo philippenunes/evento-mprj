@@ -2,6 +2,7 @@ package com.mprj.eventos.controller;
 
 import com.mprj.eventos.model.Evento;
 import com.mprj.eventos.service.EventoService;
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpHeaders;
@@ -77,11 +78,23 @@ public class EventoController {
     produces = "application/vnd.ms-excel")
     public ResponseEntity<byte[]> exportaExcel() throws IOException {
 
-        byte[] bytes = eventoService.exportaLista();
+        byte[] bytes = eventoService.exportaListaExcel();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(new MediaType("application","vnd.ms-excel"));
         headers.setContentLength(bytes.length);
         headers.setContentDispositionFormData("attachment","relatorio-eventos.xlsx");
+        return new ResponseEntity<byte[]>(bytes, headers, HttpStatus.ACCEPTED);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/exportapdf",
+            produces = "application/pdf")
+    public ResponseEntity<byte[]> exportaPDF() throws IOException, JRException {
+
+        byte[] bytes = eventoService.exportaListaPdf();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(new MediaType("application","pdf"));
+        headers.setContentLength(bytes.length);
+        headers.setContentDispositionFormData("attachment","relatorio-eventos.pdf");
         return new ResponseEntity<byte[]>(bytes, headers, HttpStatus.ACCEPTED);
     }
 

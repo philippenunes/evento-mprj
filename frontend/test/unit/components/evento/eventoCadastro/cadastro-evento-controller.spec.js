@@ -64,7 +64,7 @@
   
     });
 
-      fit("Deve chamar toaster error com cadastro errado", () => {
+      it("Deve chamar toaster error com cadastro errado", () => {
                       
         var deferred = $q.defer();        
         deferred.reject();        
@@ -103,7 +103,6 @@
 
         expect(toastrMock.success).toHaveBeenCalled();
     });
-   
     
   });
 })();
