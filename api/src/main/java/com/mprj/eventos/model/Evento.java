@@ -18,7 +18,7 @@ public class Evento {
     private String termino;
     private String presencaTecnico;
     private String status;
-    private int registro;
+    private Integer registro;
     private String observacao;
    // private Equipamento equipamento;
 
@@ -103,11 +103,11 @@ public class Evento {
         this.status = status;
     }
 
-    public int getRegistro() {
+    public Integer getRegistro() {
         return registro;
     }
 
-    public void setRegistro(int registro) {
+    public void setRegistro(Integer registro) {
         this.registro = registro;
     }
 

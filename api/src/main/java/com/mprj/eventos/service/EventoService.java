@@ -76,7 +76,8 @@ public class EventoService {
 
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("LOGO", imagem);
-        parameters.put("REPORT_LOCALE", new Locale("pt", "BR"));
+        parameters.put("REPORT_LOCALE", new Locale("en", "US"));
+
 
         InputStream jasperStream = getClass().getResourceAsStream("/com/mprj/eventos/reports/relatorio-eventos-pdf.jasper");
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperStream, parameters, new JRBeanCollectionDataSource(lista));

@@ -28,11 +28,18 @@
 	<field name="titulo" class="java.lang.String"/>
 	<field name="data" class="java.util.Date"/>
 	<field name="contato" class="java.lang.String"/>
+	<field name="local" class="java.lang.String"/>
+	<field name="inicio" class="java.lang.String"/>
+	<field name="termino" class="java.lang.String"/>
+	<field name="presencaTecnico" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="registro" class="java.lang.Integer"/>
+	<field name="observacao" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="144" splitType="Stretch">
+		<band height="100" splitType="Stretch">
 			<image>
 				<reportElement x="10" y="10" width="100" height="90" uuid="1ccb60cf-643f-43aa-b8bd-45a7f0517b2d"/>
 				<imageExpression><![CDATA[$P{LOGO}]]></imageExpression>
@@ -50,21 +57,55 @@
 	<columnHeader>
 		<band height="30" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-			<textField>
-				<reportElement key="" style="table_th" x="0" y="0" width="100" height="30" uuid="e5db3913-73bb-498b-b96f-555f3186a6c6"/>
+			<textField isBlankWhenNull="true">
+				<reportElement key="" style="table_th" x="0" y="0" width="49" height="30" uuid="e5db3913-73bb-498b-b96f-555f3186a6c6"/>
 				<textFieldExpression><![CDATA[$R{label.solicitante}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement style="table_th" x="100" y="0" width="100" height="30" uuid="4b826eaf-e765-4415-8023-faf2d9715699"/>
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_th" x="49" y="0" width="49" height="30" uuid="4b826eaf-e765-4415-8023-faf2d9715699">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
 				<textFieldExpression><![CDATA[$R{label.contato}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement style="table_th" x="200" y="0" width="100" height="30" uuid="6142e65f-0ee4-45ca-a860-b263e47987a8"/>
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_th" x="98" y="0" width="49" height="30" uuid="6142e65f-0ee4-45ca-a860-b263e47987a8"/>
 				<textFieldExpression><![CDATA[$R{label.titulo}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement style="table_th" x="300" y="0" width="100" height="30" uuid="de680390-9c97-478f-bb35-fa6531535f3b"/>
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_th" x="147" y="0" width="49" height="30" uuid="de680390-9c97-478f-bb35-fa6531535f3b"/>
 				<textFieldExpression><![CDATA[$R{label.data}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="" style="table_th" x="196" y="0" width="49" height="30" uuid="4a73b2a6-23ef-45ff-872e-8d2c92759636"/>
+				<textFieldExpression><![CDATA[$R{label.local}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="" style="table_th" x="245" y="0" width="49" height="30" uuid="36dd173c-4772-4e99-9adf-3b8a57db1eee"/>
+				<textFieldExpression><![CDATA[$R{label.inicio}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="" style="table_th" x="294" y="0" width="49" height="30" uuid="e0309a1f-e1da-4ad2-b884-24473cb6a982">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$R{label.termino}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="" style="table_th" x="343" y="0" width="49" height="30" uuid="f38db0bc-7016-4421-8ddc-4a92f6e73554"/>
+				<textFieldExpression><![CDATA[$R{label.presencaTecnico}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="" style="table_th" x="392" y="0" width="49" height="30" uuid="c98195e8-f23d-4055-bba3-3ba1c72311c5"/>
+				<textFieldExpression><![CDATA[$R{label.status}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_th" x="441" y="0" width="49" height="30" uuid="ff72f5d2-9c0c-4928-baf1-cd6abc37b999">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$R{label.registro}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="table_th" x="490" y="0" width="49" height="30" uuid="c6f90524-27d8-4336-ab45-deb1dd4982c9"/>
+				<textFieldExpression><![CDATA[$R{label.observacao}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>
@@ -72,20 +113,54 @@
 		<band height="30" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<textField>
-				<reportElement style="table_td" x="0" y="0" width="100" height="30" uuid="846c8f55-951f-4d40-a0ca-c4a4cd15754a"/>
+				<reportElement style="table_td" x="0" y="0" width="49" height="30" uuid="846c8f55-951f-4d40-a0ca-c4a4cd15754a">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
 				<textFieldExpression><![CDATA[$F{solicitante}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement style="table_td" x="100" y="0" width="100" height="30" uuid="67ec1bed-a264-4696-99fb-47becc9f3b26"/>
+				<reportElement style="table_td" x="49" y="0" width="49" height="30" uuid="67ec1bed-a264-4696-99fb-47becc9f3b26"/>
 				<textFieldExpression><![CDATA[$F{contato}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table_td" x="200" y="0" width="100" height="30" uuid="dc8f0f8b-a11f-44d0-8c1c-0a2daa711164"/>
+				<reportElement style="table_td" x="98" y="0" width="49" height="30" uuid="dc8f0f8b-a11f-44d0-8c1c-0a2daa711164"/>
 				<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table_td" x="300" y="0" width="100" height="30" uuid="40b17b8d-a0be-4504-bcbe-65f1e6123c87"/>
+				<reportElement style="table_td" x="147" y="0" width="49" height="30" uuid="40b17b8d-a0be-4504-bcbe-65f1e6123c87"/>
 				<textFieldExpression><![CDATA[DateFormat.getDateInstance(DateFormat.SHORT, $P{REPORT_LOCALE}).format( $F{data} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_td" x="196" y="0" width="49" height="30" uuid="74308b53-9a8d-47f5-8f69-98b310bbcd84">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{local}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_td" x="245" y="0" width="49" height="30" uuid="49beda00-0cc8-4b24-996b-b444cad0e511"/>
+				<textFieldExpression><![CDATA[$F{inicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_td" x="343" y="0" width="49" height="30" uuid="2878dfab-b0d4-4a1c-ab1b-989ed50b98dc"/>
+				<textFieldExpression><![CDATA[$F{presencaTecnico}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_td" x="392" y="0" width="49" height="30" uuid="f30fd7fd-4c22-4442-af3c-7b736804e9d6"/>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_td" x="441" y="0" width="49" height="30" uuid="f36bd273-10cd-40e2-be03-c5885816dc8f"/>
+				<textFieldExpression><![CDATA[$F{registro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_td" x="490" y="0" width="49" height="30" uuid="6cec08ce-3360-41bb-9049-86fc1ae8f4b6"/>
+				<textFieldExpression><![CDATA[$F{observacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_td" x="294" y="0" width="49" height="30" uuid="3a7b4d8f-349f-4a3e-a882-3fc58d1a09aa">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{termino}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
