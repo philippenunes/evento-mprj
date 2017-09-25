@@ -1,56 +1,51 @@
-<div class="download.icons">  
-    <button class="btn btn-link" ng-click="vm.exportaExcel()">
-    <span class="glyphicon glyphicon-download-alt"></span>
-    Exportar para Excel
-    </button>
+<div class="row">       
+    <div class="col-xs-6"> 
+        <table class="tabela-lista">   
+            <thead>
+                <tr>
+                    <th>ID</th> 
+                    <th>Título</th>
+                    <th>Data</th>
+                    <th>Local</th>  
+                    <th>Início</th>
+                    <th></th>
+                </tr>
+            </thead>   
 
-    <button class="btn btn-link" ng-click="vm.exportaPdf()">
-    <span class="glyphicon glyphicon-download-alt"></span>
-    Exportar para Pdf
-    </button>
+            <tbody ng-repeat="evento in vm.eventos" ng-class-even="'even'">  
+                <tr class="corpo-tabela-lista">
+                    <td>{{evento.id}}</td>
+                    <td>{{evento.titulo}}</td>
+                    <td>{{evento.data | date:'dd/MM/yyyy'}}</td>
+                    <td>{{evento.local}}</td>
+                    <td>{{evento.inicio}}</td> 
+                    <td>
+                        <input id="marginButton"
+                         type="button"
+                         class="btn btn-primary btn-sm"
+                         ng-click="vm.buscaEvento(evento)"
+                         value="+">
+                    </td>
+                </tr> 
+            </tbody>           
+        </table>
+
+        <div class="download.icons">  
+            <button class="btn btn-link" ng-click="vm.exportaExcel()">
+            <span class="glyphicon glyphicon-download-alt"></span>
+            Exportar para Excel
+            </button>
+
+            <button class="btn btn-link" ng-click="vm.exportaPdf()">
+            <span class="glyphicon glyphicon-download-alt"></span>
+            Exportar para Pdf
+            </button>
+        </div>  
+    </div>
+  
+    <div class="col-xs-4"> 
+        <div class="evento-detalhe-view" ui-view></div>
+    </div>    
 </div>    
-
-<table class="tabela-lista">   
-    <thead>
-        <tr>
-            <th></th>
-            <th>Solicitante</th>
-            <th>Contato</th>
-            <th>Título</th>
-            <th>Data</th>
-            <th>Local</th>  
-            <th>Início</th>
-            <th>Término</th>
-            <th>Presença do técnico</th>
-            <th>Status</th>  
-            <th>Registro</th> 
-            <th>Observação</th> 
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>   
-
-    <tbody ng-repeat="evento in vm.eventos" ng-class-even="'even'">  
-        <tr class="corpo-tabela-lista">
-            <td>{{evento.id}}</td>
-            <td>{{evento.solicitante}}</td>
-            <td>{{evento.telefone}}</td>
-            <td>{{evento.titulo}}</td>
-            <td>{{evento.data | date:'dd/MM/yyyy'}}</td>
-            <td>{{evento.local}}</td>
-            <td>{{evento.inicio}}</td>
-            <td>{{evento.termino}}</td>
-            <td>{{evento.presencaTecnico}}</td>
-            <td>{{evento.status}}</td>
-            <td>{{evento.registro}}</td>
-            <td>{{evento.observacao}}</td> 
-            <td><input type="button" class="btn btn-black btn-sm" value="Alterar" ng-click="vm.buscaEvento(evento)"></td>
-            <td><input type="button" class="btn btn-black btn-sm" value="Excluir" data-toggle="modal" ng-click="vm.excluiEvento(evento)"></td> 
-        </tr> 
-    </tbody>           
-</table>
-
-
-
 
 

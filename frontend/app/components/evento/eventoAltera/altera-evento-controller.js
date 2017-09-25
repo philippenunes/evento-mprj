@@ -25,7 +25,7 @@
                 controllerAs: 'vm',
                 resolve: {
                     objeto: () => {
-                        return {evento: vm.evento};
+                        return {evento: this.evento};
                    }
                 }
             }).result

@@ -4,8 +4,9 @@
    'ui.router',
    'toastr',
    'blockUI',
+   'ngAnimate',
    'angularSpinkit',
-   'ngFileSaver'
+   'ngFileSaver',
    ]);
 
 appEvento.config(['$qProvider', function ($qProvider) {

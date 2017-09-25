@@ -44,11 +44,6 @@ body, html
 	padding: 5px;
 }
 
-/*.menu-principal li a:hover {
-	background-color: rgb(0,128,181);
-	transition-duration: 0.4s;
-}*/
-
 /* MENU LATERAL */
 
 
@@ -96,7 +91,6 @@ body, html
 .tabela-lista {
 	border-collapse: collapse;
 	text-align: center;
-	width: 100em;
     border: 1px solid #666; 
 	font-family: Myraid ,Pro Frutiger, "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Verdana, sans-serif;
 }
@@ -115,14 +109,9 @@ body, html
     background-color: #CCC;
 }
 
-.download.icons {
-	
+#marginButton {
+	margin: 3px;
 }
-
-/*.corpo-tabela-lista:hover {
-	background-color:#3d80df;
-	color: #fff;
-}*/
 
 .tbody_div_tr_conteudo {
    float: left;
@@ -145,4 +134,28 @@ thead tr:hover {
 
 .even {
 	background-color: #CCC;
+}
+
+/*DETALHE EVENTO*/
+
+.detalhe-evento {
+	transition: all linear 0.5s;
+	background-color: lightblue;
+	height: 100px;
+}
+
+#tabela-lista-detalhes {
+	font-family: Myraid ,Pro Frutiger, "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Verdana, sans-serif;
+}
+
+.evento-detalhe {
+	border: 1px solid black;
+	margin-top: 10px;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+#evento-detalhe-view {
+	transition: all linear 0.5s;
+	height: 100px;
 }

@@ -1,0 +1,69 @@
+<div class="evento-detalhe">
+    <table id="tabela-lista-detalhes" class="table table-hover">  
+      <caption>Detalhes evento: {{ vm.evento.titulo }}</caption>
+        <tr>
+            <td>ID</td>
+            <td >{{ vm.evento.id }}</td>
+        </tr>
+        <tr>
+            <td>Solicitante</td>
+            <td>{{ vm.evento.solicitante }}</td>
+        </tr>
+        <tr>
+            <td>Contato</td>
+            <td>{{ vm.evento.contato }}</td>
+        </tr>
+        <tr>
+            <td>Título</td>
+            <td>{{ vm.evento.titulo }}</td>
+        </tr>
+        <tr>
+            <td>Data</td>
+            <td>{{ vm.evento.data | date:'dd/MM/yyyy' }}</td>
+        </tr>
+        <tr>
+            <td>Local</td>
+            <td>{{ vm.evento.local }}</td>
+        </tr>  
+        <tr>
+            <td>Início</td>
+            <td>{{ vm.evento.inicio }}</td>
+        </tr>
+        <tr>
+            <td>Término</td>
+            <td>{{ vm.evento.termino }}</td>
+        </tr>
+        <tr>
+            <td>Presença do técnico</td>
+            <td>{{ vm.evento.presencaTecnico }}</td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>{{ vm.evento.status }}</td>
+        </tr>  
+        <tr>
+            <td>Registro</td>
+            <td>{{ vm.evento.registro }}</td>
+        </tr> 
+        <tr>
+            <td>Observação</td>
+            <td>{{ vm.evento.observacao }}</td>
+        </tr> 
+    </table>
+
+    <div>
+        <input type="button"
+        id="marginButton"
+        class="btn btn-default btn-sm"
+        value="Alterar"
+        ng-click="vm.alteraEvento(evento)">
+
+        <input type="button"
+        id="marginButton"                   
+        class="btn btn-default btn-sm"
+        value="Excluir"
+        data-toggle="modal"
+        ng-click="vm.excluiEvento(evento)">
+    </div>
+</div>
+

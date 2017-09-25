@@ -7,12 +7,12 @@
 		
   	$stateProvider
 
-		.state('home',{
-			url: '/home',
-			templateUrl: '/components/user/user-info.html',
-			controller: 'userInfoController',
-			controllerAs: 'vm'
-		})
+	.state('home',{
+		url: '/home',
+		templateUrl: '/components/user/user-info.html',
+		controller: 'userInfoController',
+		controllerAs: 'vm'
+	})
 
     .state('login',{
       url: '/login',
@@ -33,21 +33,30 @@
   		templateUrl: '/components/evento/eventoLista/lista-evento.html',
 			controller: 'listaEventoController',
 			controllerAs: 'vm'
-  	})
+		})
+	.state('listar.detalhes', {
+		url: "/detalhes",
+		templateUrl: '/components/evento/eventoDetalhe/detalhe-evento.html',
+		controller: 'detalheEventoController',
+		controllerAs: 'vm',
+		params: {
+			evento: {}
+		} 
+	})
 
-		 .state('alterar',{
-  		url: '/alterar',
-  		templateUrl: '/components/evento/eventoAltera/altera-evento.html',
-			controller: 'alteraEventoController',
-			controllerAs: 'vm',
-			params: {
-				evento : {}
-			}
-  	})
+	.state('alterar',{
+		url: '/alterar',
+		templateUrl: '/components/evento/eventoAltera/altera-evento.html',
+		controller: 'alteraEventoController',
+		controllerAs: 'vm',
+		params: {
+			evento : {}
+		}
+	})
 
-		.state('suporte',{
-  		url: '/suporte',
-  		templateUrl: '/components/suporte/suporte.html',
+	.state('suporte',{
+		url: '/suporte',
+		templateUrl: '/components/suporte/suporte.html',
   	})
 
   });

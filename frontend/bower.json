@@ -31,7 +31,7 @@
     "angular-toastr": "latest",
     "angular-block-ui": "0.2.2",
     "angular-spinkit": "v0.0.2.1",
-    "angular-animate": "latest",
+    "angular-animate": "1.6.4",
     "angular-file-saver": "latest",
     "angular-mocks": "1.6.5",
     "angular-material-icons": "^0.7.1"
