@@ -5,7 +5,7 @@
         .module('appEvento')
         .factory('userService', userService);
 
-    function userService($http, $q) {
+    function userService($http, $q, CONSTANTS) {
 
         var userService = {
             login : login
@@ -14,11 +14,11 @@
         return userService;
 
         function login(headers) {
-            var promise = $http.get('http://localhost:8080/usuario', {headers : headers})
+            var promise = $http.get(CONSTANTS.API_URL_USERS, {headers : headers})
             .then(getLoginSuccess)
             .catch(getLoginError);
 
-            function getLoginSuccess(response) {
+            function getLoginSuccess(response) { 
                 return response;
             }
 

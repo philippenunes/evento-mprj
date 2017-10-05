@@ -30,8 +30,8 @@ gulp.task('change-src', function () {
 
 gulp.task('serve', [], function () {
 
-  var proxyOptions = url.parse('http://localhost:8080/eventos');
-  proxyOptions.route = '/eventos';
+  var proxyOptions = url.parse('http://localhost:8080/sample/api');
+  proxyOptions.route = '/sample/api';
 
   var jsfiles = basePaths.src + '/**/*.*';
 

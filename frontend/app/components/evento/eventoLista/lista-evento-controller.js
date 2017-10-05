@@ -18,6 +18,8 @@
 
         var vm = this;
         vm.init = init;
+        vm.orderByDate = "orderByDate";
+        vm.mostraLista = false;
         vm.listaEventos = listaEventos;
         vm.buscaEvento = buscaEvento;
         vm.exportaExcel = exportaExcel;
@@ -49,10 +51,15 @@
             .catch(getListaError);
 
             function getListaSuccess(response) {
+               if(response != null) {
                  vm.eventos = response.data;
-              for (var i = 0 ; i < response.data.length ; i++){
-                response.data[i].data = new Date(response.data[i].data);
-              }
+                  for (var i = 0 ; i < response.data.length ; i++){
+                    response.data[i].data = new Date(response.data[i].data);
+                }
+                vm.mostraLista = true;
+              } else {
+
+              } 
             }
 
             function getListaError() {

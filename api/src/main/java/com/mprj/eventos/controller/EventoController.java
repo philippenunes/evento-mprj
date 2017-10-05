@@ -74,7 +74,7 @@ public class EventoController {
         eventoService.alteraEvento(evento);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/exportaeventos",
+    @RequestMapping(method = RequestMethod.GET, value = "/exportaexcel",
     produces = "application/vnd.ms-excel")
     public ResponseEntity<byte[]> exportaExcel() throws IOException {
 

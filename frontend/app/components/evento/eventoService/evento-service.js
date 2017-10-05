@@ -5,7 +5,7 @@
         .module('appEvento')
         .factory('eventoService', eventoService);  
 
-    function eventoService($http, $q, $log) {
+    function eventoService($http, $q, $log, CONSTANTS) {
 
         var eventoService = {
            cadastraEvento : cadastraEvento,
@@ -20,7 +20,7 @@
         return eventoService;
 
         function cadastraEvento(evento) {
-            var promise = $http.post('http://localhost:8080/eventos', evento)
+            var promise = $http.post(CONSTANTS.API_URL_EVENTOS, evento)
                 .then(getCadastroSuccess)
                 .catch(getCadastroError);
 
@@ -36,7 +36,7 @@
         }
 
         function alteraEvento(evento) {
-            var promise = $http.put('http://localhost:8080/eventos', evento)
+            var promise = $http.put(CONSTANTS.API_URL_EVENTOS, evento)
                 .then(getAlteraSuccess)
                 .catch(getAlteraError);
 
@@ -51,7 +51,7 @@
         }
 
         function buscaEvento(evento) {
-            var promise = $http.get(`http://localhost:8080/eventos/${evento.id}`)
+            var promise = $http.get(CONSTANTS.API_URL_EVENTOS + evento.id)
                 .then(getBuscaEventoSuccess)
                 .catch(getBuscaEventoError);
 
@@ -66,7 +66,7 @@
         }
 
         function excluiEvento(evento) {
-            var promise = $http.delete(`http://localhost:8080/eventos/${evento.id}`)
+            var promise = $http.delete(`CONSTANTS.API_URL_EVENTOS/${evento.id}`)
                 .then(getExcluiSuccess)
                 .catch(getExcluiError);
                 
@@ -80,7 +80,7 @@
         }
 
         function listaEventos() {
-            var promise = $http.get('http://localhost:8080/eventos')
+            var promise = $http.get(CONSTANTS.API_URL_EVENTOS)
                 .then(getListaSuccess)
                 .catch(getListaError);
 
@@ -94,7 +94,7 @@
         }
 
         function exportarExcel() {
-             var promise = $http.get('http://localhost:8080/exportaeventos', {
+             var promise = $http.get(CONSTANTS.API_URL_EXCEL, {
               responseType: 'blob',
               headers:{
                     Accept:'application/vnd.ms-excel'
@@ -106,7 +106,7 @@
           }
 
           function exportaPdf() {
-             var promise = $http.get('http://localhost:8080/exportapdf', {
+             var promise = $http.get(CONSTANTS.API_URL_PDF, {
               responseType: 'blob',
               headers:{
                     Accept:'application/pdf'

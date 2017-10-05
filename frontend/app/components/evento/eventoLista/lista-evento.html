@@ -1,11 +1,11 @@
-<div class="row">       
-    <div class="col-xs-6"> 
+<div class="row" ng-show="vm.mostraLista">
+    <div class="col-xs-6">        
         <table class="tabela-lista">   
             <thead>
                 <tr>
                     <th>ID</th> 
                     <th>Título</th>
-                    <th>Data</th>
+                    <th><a href ui-sref="listar({ listParams: vm.orderByDate })">Data</a></th>
                     <th>Local</th>  
                     <th>Início</th>
                     <th></th>
@@ -15,9 +15,9 @@
             <tbody ng-repeat="evento in vm.eventos" ng-class-even="'even'">  
                 <tr class="corpo-tabela-lista">
                     <td>{{evento.id}}</td>
-                    <td>{{evento.titulo}}</td>
+                    <td  width=200>{{evento.titulo}}</td>
                     <td>{{evento.data | date:'dd/MM/yyyy'}}</td>
-                    <td>{{evento.local}}</td>
+                    <td  width=200>{{evento.local}}</td>
                     <td>{{evento.inicio}}</td> 
                     <td>
                         <input id="marginButton"
@@ -46,6 +46,10 @@
     <div class="col-xs-4"> 
         <div class="evento-detalhe-view" ui-view></div>
     </div>    
-</div>    
+</div>
 
+<div ng-show="!vm.mostraLista">
+    <h1>Não há dados para exibir!  </h1>  
+    <h3>Clique <a href="http://localhost:9000/#!/cadastrar">aqui</a> para cadastrar um novo evento.</h3>
+</div>
 

@@ -6,9 +6,9 @@
         .module('appEvento')
         .controller('detalheEventoController', detalheEventoController)
 
-          detalheEventoController.$inject = ['$state', '$scope', '$uibModal', 'toastr']    
+          detalheEventoController.$inject = ['eventoService', '$state', '$scope', '$uibModal', 'toastr']    
 
-    function detalheEventoController($state, $scope, $uibModal, toastr){
+    function detalheEventoController(eventoService, $state, $scope, $uibModal, toastr){
         var vm = this;
         vm.init = init;
         vm.alteraEvento = alteraEvento;
@@ -49,11 +49,11 @@
             .then( (data) => {
                  if( data === true) {
                    toastr.success('Registro excluído!', 'Sucesso');
+                   $state.go('listar', {}, { reload: 'listar' });
                  } 
-                 $state.go('listar');
             })
             .catch( () => {
-                 toastr.error('O registro não foi excluído!', 'Erro');
+                 toastr.error('O registro não foi excluído!', 'Ocorreu um erro');
             })
         }
     }

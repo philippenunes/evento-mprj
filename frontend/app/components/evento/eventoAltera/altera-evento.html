@@ -1,11 +1,4 @@
 <div class="body-cadastrar">
-<!--
-<p align="center" class="alert alert-success" ng-show="vm.alteraSuccess">
-	<b>Evento alterado com sucesso!</b>
-</p>
-<p align="center" class="alert alert-danger" ng-show="vm.alteraSuccess === false">
-	<b>Não foi possível alterar o evento, verifique o campos!</b>
-</p>-->
 
 <!-- Janela de alteração -->
 <!--<div class="modal fade" id="modal-mensagem-alterar">
@@ -29,6 +22,7 @@
 <div align="center" class="formulario-de-evento">
 	<div ng-include="'components/evento/formulario.html'"></div>
 	<input class="btn btn-primary" type="button" value="Alterar" ng-click="vm.alteraEvento()"/>
+	<input class="btn btn-primary" type="button" value="Cancelar" ng-click="vm.cancelaAlteracao()"/>
 </div>	
 
 </div>		

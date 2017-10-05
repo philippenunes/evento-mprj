@@ -11,12 +11,17 @@
         var vm = this;
         vm.init = init;
         vm.evento = {};
+        vm.cancelaAlteracao = cancelaAlteracao;
         vm.alteraEvento = alteraEvento;
         vm.init();
 
         function init() {
             vm.evento = $state.params.evento;
         };
+
+        function cancelaAlteracao() {
+            $state.go('listar');
+        }
 
         function alteraEvento() {
             return $uibModal.open({

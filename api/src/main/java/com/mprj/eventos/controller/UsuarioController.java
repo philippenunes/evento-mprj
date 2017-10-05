@@ -13,10 +13,8 @@ import java.security.Principal;
 @ComponentScan({"com.mprj.eventos.service"})
 public class UsuarioController {
 
-    @RequestMapping("/usuario")
+    @RequestMapping("/user")
     public Principal user(Principal user) {
         return user;
     }
-
-
 }

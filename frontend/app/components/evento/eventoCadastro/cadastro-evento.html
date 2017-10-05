@@ -6,10 +6,19 @@
 <p align="center" class="alert alert-danger" ng-show="vm.cadastroSuccess === false">
 	<b>Não foi possível inserir o evento, verifique o campos!</b>
 </p>-->
+<div class="row">
+	<div class="col-xs-6">
+		<div class="formulario-de-evento">
+			<div ng-include="'components/evento/formulario.html'"></div>
+			<input class="btn btn-primary" type="button" value="Cadastrar" ng-disable="frmEvento.$pristine" ng-click="vm.cadastraEvento()"/>
+		</div>	
+	</div>
 
-	<div align="center" class="formulario-de-evento">
-		<div ng-include="'components/evento/formulario.html'"></div>
-		<input class="btn btn-primary" type="button" value="Cadastrar" ng-disable="frmEvento.$pristine" ng-click="vm.cadastraEvento()"/>
-	</div>	
+	<div class="col-xs-4">
+		<h1>Sistema para cadastro de eventos.</h1>
+		<h3>Atualmente existem {{ vm.numEventos }} eventos cadastrados no sistema.</h3>
+	</div>
+</div>
+
 </div>		
 
