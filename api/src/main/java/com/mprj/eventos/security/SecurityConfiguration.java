@@ -6,6 +6,7 @@
  */
 package com.mprj.eventos.security;
 
+import com.mprj.eventos.security.handler.AjaxLogoutSuccessHandler;
 import com.mprj.eventos.security.provider.SecurityAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -27,6 +28,10 @@ import javax.annotation.Resource;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+    @Bean
+    public AjaxLogoutSuccessHandler ajaxLogoutSuccessHandler () {
+        return new AjaxLogoutSuccessHandler();
+    }
 
     @Resource
     private Http401UnauthorizedEntryPoint authenticationEntryPoint;
@@ -53,15 +58,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .authenticationEntryPoint(authenticationEntryPoint)
             .and()
         .authorizeRequests()
-              .antMatchers("/", "/login").permitAll()
-              .anyRequest().authenticated()
-//            .and()
-//        .logout()
-//        .logoutUrl("/api/logout")
-//        .logoutSuccessHandler(ajaxLogoutSuccessHandler)
-//        .deleteCookies("JSESSIONID")
-//        .permitAll()
-        .and()
+            .antMatchers("/", "/login").permitAll()
+            .anyRequest().authenticated()
+            .and()
+        .logout()
+            .logoutUrl("/api/logout/")
+            .logoutSuccessHandler(ajaxLogoutSuccessHandler())
+            .deleteCookies("JSESSIONID")
+            .permitAll()
+            .and()
         .csrf()
         .disable()
         .headers()

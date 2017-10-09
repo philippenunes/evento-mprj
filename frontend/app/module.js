@@ -7,6 +7,7 @@
    'ngAnimate',
    'angularSpinkit',
    'ngFileSaver',
+   'satellizer'
    ]);
 
 appEvento.config(['$qProvider', function ($qProvider) {
@@ -26,5 +27,6 @@ appEvento.constant('CONSTANTS', {
   API_URL_EVENTOS: "/sample/api/eventos/",
   API_URL_PDF: "/sample/api/exportapdf/",
   API_URL_EXCEL: "/sample/api/exportaexcel/",
-  API_URL_USERS: "/sample/api/user/"
+  API_URL_USERS: "/sample/api/user/",
+  API_URL_LOGOUT: "/sample/api/logout/"
 })

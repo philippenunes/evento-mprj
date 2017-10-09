@@ -5,9 +5,9 @@
         .module('appEvento')
         .controller('userLoginController', userLoginController); 
 
-    userLoginController.$inject  = ['userService', '$rootScope', '$state'];    
+    userLoginController.$inject  = ['userService', '$rootScope', '$state', 'toastr'];    
 
-    function userLoginController(userService, $rootScope, $state) {
+    function userLoginController(userService, $rootScope, $state, toastr) {
 
         var vm = this;
         vm.error = false;
@@ -15,9 +15,10 @@
         vm.login = login;
         vm.limpaUsuario = limpaUsuario;
 
-    function limpaUsuario() {
-        vm.credentials = {};
-    }    
+
+        function limpaUsuario() {
+            vm.credentials = {};
+        }    
 
         function login() {
         console.log('user controller');
@@ -35,16 +36,32 @@
         function getLoginSuccess(data) {
             $state.go('home');
             $rootScope.authenticated = true;
-            $rootScope.principal = data.principal;
             vm.error = false;
         }
 
         function getLoginError(message) {
             $state.go('login');
             $rootScope.authenticated = false;
-            $rootScope.principal = null;
             vm.error = true;
+         }
         }
+
+
+        function logout(){
+            userService.logout()
+                .then(getLogoutSuccess)
+                .catch(getLogoutError);
+
+            function getLogoutSuccess(){
+                $rootScope.authenticated = false;
+                $rootScope.principal = null;
+                vm.error = false;
+                $state.go("login");
+            }
+
+            function getLogoutError(){
+                vm.error = true;
+            }
         }
     }
      

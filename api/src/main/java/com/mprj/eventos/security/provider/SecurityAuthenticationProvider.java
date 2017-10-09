@@ -24,6 +24,9 @@ public class SecurityAuthenticationProvider implements AuthenticationProvider {
         String password = authentication.getCredentials().toString();
 
 
+
+
+
         if (name.equals("user") && password.equals("user")) {
             List<GrantedAuthority> grantedAuths = new ArrayList<GrantedAuthority>();
             grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));

@@ -80,6 +80,10 @@ body, html
 	width: 300px;
 }
 
+.alert-danger {
+	width: 700px;
+}
+
 /* CADASTRO */
 
 .formulario-de-evento {

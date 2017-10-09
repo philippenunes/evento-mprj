@@ -20,11 +20,12 @@
 		<div class="container">
 			<div class="nav-bar">
 				<ul class="menu-principal">
+					<li ng-show="!authenticated"><a href ui-sref="login">LOGIN</a></li>
 					<li ng-show="authenticated"><a href ui-sref="home">HOME</a></li>
-					<li><a href ui-sref="cadastrar">CADASTRAR</a></li>
-					<li><a href ui-sref="listar">LISTAR</a></li>
-					<li><a href ui-sref="suporte">SUPORTE</a></li>
-					<li ng-show="authenticated"><a href ui sref="sair">LOGOUT</a></li>
+					<li ng-show="authenticated"><a href ui-sref="cadastrar">CADASTRAR</a></li>
+					<li ng-show="authenticated"><a href ui-sref="listar">LISTAR</a></li>
+					<li ng-show="!authenticated"><a href ui-sref="suporte">SUPORTE</a></li>
+					<li ng-show="authenticated"><a href app-logout-user>LOGOUT</a></li>
 				</ul>
 			</div>
 		</div>
@@ -49,6 +50,7 @@ versão 2.0
 <script src="../bower_components/angular-block-ui/dist/angular-block-ui.js"></script>
 <script src="../bower_components/angular-spinkit/build/angular-spinkit.min.js"></script>
 <script src="../bower_components/angular-file-saver/dist/angular-file-saver.bundle.js"></script>
+<script src="../bower_components/satellizer/dist/satellizer.js"></script>
 <script src="./module.js"></script>
 <script src="./app-route.js"></script>
 <script src="../bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
@@ -62,9 +64,10 @@ versão 2.0
 <script src="./components/evento/eventoAltera/altera-evento-controller.js"></script> 
 <script src="./components/evento/eventoAltera/modal-confirma-alteracao.js"></script> 
 <script src="./components/evento/eventoService/evento-service.js"></script>    
-<script src="./components/user/user-login-controller.js"></script>
-<script src="./components/user/user-info-controller.js"></script>
-<script src="./components/user/user-service.js"></script>  	  
+<script src="./components/user/userLogin/user-login-controller.js"></script>
+<script src="./components/user/userLogout/user-logout-controller.js"></script>
+<script src="./components/user/userInfo/user-info-controller.js"></script>
+<script src="./components/user/userService/user-service.js"></script>  	  
 	    	  	 	
 </body>
 </html>
