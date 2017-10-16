@@ -13,14 +13,7 @@
         vm.error = false;
         vm.credentials = {};
         vm.login = login;
-        vm.spinner = spinner;
-        vm.blockUI - blockUI;
         vm.limpaUsuario = limpaUsuario;
-
-
-        function spinner() {
-            blockUI();
-        }
 
         function limpaUsuario() {
             vm.credentials = {};

@@ -77,12 +77,12 @@
                     FileSaver.saveAs(blob, 'relatorio-eventos.xlsx');
                 }
             }).finally(function(){
-            blockUI.stop();
+            $.unblockUI();
             });
         }
 
         function exportaPdf() {
-            blockUI.start();
+            blockUI();
             eventoService.exportaPdf()
             .then( function (data) {
                 if (data !== null && data.size === 0) {
@@ -92,7 +92,7 @@
                     FileSaver.saveAs(blob, 'relatorio-eventos.pdf');
                 }
             }).finally(function(){
-              blockUI.stop();
+                $.unblockUI();
             });
         }
 
