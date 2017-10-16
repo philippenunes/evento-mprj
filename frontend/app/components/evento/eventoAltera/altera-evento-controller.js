@@ -36,12 +36,12 @@
             }).result
             .then( (data) => {
                  if( data === true) {
-                   toastr.success('O Registro foi alterado!', 'Sucesso :)');
+                   toastr.success('O Registro foi alterado!', 'Sucesso');
                  } 
                 $state.go('listar'); 
             })
             .catch( () => {
-                toastr.error('Verifique os campos!', 'Registro não alterado :(');    
+                toastr.error('Verifique os campos!', 'Registro não alterado');    
             })
         }
      }

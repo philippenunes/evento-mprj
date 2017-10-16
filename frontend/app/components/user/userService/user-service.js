@@ -10,6 +10,7 @@
         var userService = {
             login : login,
             logout : logout,
+            getPrincipal : getPrincipal
            // isAuthenticated : isAuthenticated
         }
 
@@ -20,6 +21,12 @@
         //     let isAuthenticated = authenticated ? true: false;      
         //     return isAuthenticated;
         // }
+
+        function getPrincipal() {
+            login().then(function (response) {
+                return response.data.principal;  
+            })
+        }
 
         function logout() {
          var promise = $http.post(CONSTANTS.API_URL_LOGOUT)    

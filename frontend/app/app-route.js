@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  appEvento.config(function($stateProvider, $urlRouterProvider, $locationProvider, $authProvider){
+  appEvento.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
-		$urlRouterProvider.otherwise('/login');
+	$urlRouterProvider.otherwise('/login');
 		
   	$stateProvider
 
@@ -11,7 +11,10 @@
 		url: '/home',
 		templateUrl: '/components/user/userInfo/user-info.html',
 		controller: 'userInfoController',
-		controllerAs: 'vm'
+		controllerAs: 'vm',
+		// params: {
+		// 	userAuthenticated: {}
+		// }
 	})
 
     .state('login',{
@@ -64,20 +67,23 @@
 
   });
 
-  appEvento.run(function ($rootScope, $state, $location) {
+  appEvento.run(function ($rootScope, $state, $location, userService) {
 
-		var rotasPermitidas = [];
-		var rotaSuporte = "/suporte";
-		var rotaLogin = "/login";
-		rotasPermitidas.push(rotaLogin, rotaSuporte);
-		var path = $location.path();
-	  
-		$rootScope.$on('$locationChangeStart', function () {		
-			if(($rootScope.authenticated == null || false) && (rotasPermitidas.indexOf(path) == -1)) {
-				$state.go('login'); 
-			}
+		 var rotasPermitidas = ["/login", "/suporte"];
+		 
+		$rootScope.$on('$locationChangeStart', function () {
+			var path = $location.path(); 
+			if(rotasPermitidas.indexOf(path) == -1) {
+				userService.login()
+				.then(function (response) {
+					$rootScope.authenticated = true;
+				})
+				.catch(function () {
+					$rootScope.authenticated = false;
+					$state.go('login');
+				})
+			}	
 		})
-
   })
 
 })();

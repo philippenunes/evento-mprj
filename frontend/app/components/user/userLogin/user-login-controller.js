@@ -13,16 +13,22 @@
         vm.error = false;
         vm.credentials = {};
         vm.login = login;
+        vm.spinner = spinner;
+        vm.blockUI - blockUI;
         vm.limpaUsuario = limpaUsuario;
 
+
+        function spinner() {
+            blockUI();
+        }
 
         function limpaUsuario() {
             vm.credentials = {};
         }    
 
         function login() {
-        console.log('user controller');
-        console.log(vm.credentials);
+        // console.log('user controller');
+        // console.log(vm.credentials);
         var headers = vm.credentials ? {
             authorization : "Basic "
             + btoa(vm.credentials.username + ":"
@@ -34,14 +40,14 @@
             .catch(getLoginError);
 
         function getLoginSuccess(data) {
-            $state.go('home');
             $rootScope.authenticated = true;
+            $state.go('home');
             vm.error = false;
         }
 
         function getLoginError(message) {
-            $state.go('login');
             $rootScope.authenticated = false;
+            $state.go('login');
             vm.error = true;
          }
         }

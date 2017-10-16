@@ -5,23 +5,23 @@
         .module('appEvento')
         .controller('userInfoController', userInfoController);
 
-     
-    function userInfoController($http) {
+    function userInfoController($http, $state, userService) {
         var vm = this;
         vm.init = init;
-        vm.olaMundo = olaMundo;
+        vm.getPrincipal = getPrincipal;
+        vm.user;
         vm.init();
 
+        function init() {
+           // vm.user = $state.params.userAuthenticated.data.principal;
+           vm.getPrincipal()
+        }
 
-        function olaMundo() {
-        $http({method:'GET', url:'http://localhost:8080/eventos'})
-        .then(function (response){
-              
-        }, function (response){
-    
-        });
-      } 
-
-        function init() { }
+        function getPrincipal() {
+           userService.login()
+           .then(function (response) {
+               vm.user = response.data.principal;
+           })
+        }
     }
 })();

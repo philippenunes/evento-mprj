@@ -9,12 +9,11 @@
         'eventoService',
         '$state',
         'toastr',
-        'blockUI',
         'FileSaver',
         'Blob'];  
 
     function listaEventoController(eventoService , $state, toastr,
-     blockUI, FileSaver, Blob) {
+     FileSaver, Blob) {
 
         var vm = this;
         vm.init = init;
@@ -68,7 +67,7 @@
         }
 
         function exportaExcel() {
-          blockUI.start();
+          blockUI();
             eventoService.exportarExcel()
             .then( function (data) {
                 if (data !== null && data.size === 0) {
