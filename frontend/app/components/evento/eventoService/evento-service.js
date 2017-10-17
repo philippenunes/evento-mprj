@@ -66,7 +66,7 @@
         }
 
         function excluiEvento(evento) {
-            var promise = $http.delete(`CONSTANTS.API_URL_EVENTOS/${evento.id}`)
+            var promise = $http.delete(CONSTANTS.API_URL_EVENTOS + evento.id)
                 .then(getExcluiSuccess)
                 .catch(getExcluiError);
                 

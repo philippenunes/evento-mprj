@@ -12,9 +12,6 @@
 		templateUrl: '/components/user/userInfo/user-info.html',
 		controller: 'userInfoController',
 		controllerAs: 'vm',
-		// params: {
-		// 	userAuthenticated: {}
-		// }
 	})
 
     .state('login',{

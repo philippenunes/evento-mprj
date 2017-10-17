@@ -17,7 +17,8 @@ appEvento.config(function(toastrConfig) {
   angular.extend(toastrConfig, {
     positionClass: 'toast-top-center',
     timeOut: 4000,
-    
+    maxOpened: 1,
+    preventOpenDuplicates: true    
   });
 });
 

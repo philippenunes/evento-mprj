@@ -5,9 +5,9 @@
            .module('appEvento')
            .controller('cadastroController', cadastroController);
 
-    cadastroController.$inject  = ['eventoService', '$uibModal', '$scope', 'toastr']; 
+    cadastroController.$inject  = ['eventoService', '$uibModal', '$scope', 'toastr', '$state']; 
 
-    function cadastroController(eventoService, $uibModal, $scope, toastr) {
+    function cadastroController(eventoService, $uibModal, $scope, toastr, $state) {
        
     var vm = this;
     vm.numEventos;
@@ -46,14 +46,14 @@
 
         function getCadastroSuccess() {        
          toastr.success('Evento cadastrado!', 'Sucesso'); 
-         $state.go('cadastrar', {}, { reload: 'cadastrar' });
+         $state.go('listar', {}, {reload: true});
         }
 
         function getCadastroError() {
         if(isEmpty(vm.evento)) {
-            toastr.warning('Preencha os campos!', 'Ocorreu um erro');
+            toastr.warning('Nenhum valor informado', 'Error');
          } else {            
-             toastr.error('Verifique os campos!', 'Ocorreu um erro');
+             toastr.error('Verifique os campos', 'Error');
          }
         vm.cadastroSuccess = false;  
         }

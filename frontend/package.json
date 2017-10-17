@@ -31,6 +31,5 @@
     "url": "https://github.com/lennonjesus/angular-spring-security-auth-sample/issues"
   },
   "homepage": "https://github.com/lennonjesus/angular-spring-security-auth-sample#readme",
-  "dependencies": {
-  }
+  "dependencies": {}
 }
