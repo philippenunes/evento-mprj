@@ -17,11 +17,12 @@
         vm.evento = {};
         vm.init();
 
+
         //Verifica se objeto está vazio
         function isEmpty(obj) {
             return Object.keys(obj).length === 0;
         }
-        
+
         function init() {
             vm.evento = $state.params.evento;
             if(isEmpty(vm.evento)){

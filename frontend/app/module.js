@@ -5,7 +5,8 @@
    'toastr',
    'ngAnimate',
    'angularSpinkit',
-   'ngFileSaver'
+   'ngFileSaver',
+   'ngAnimate'
    ]);
 
 appEvento.config(['$qProvider', function ($qProvider) {

@@ -17,6 +17,7 @@
 
         var vm = this;
         vm.init = init;
+        vm.showdiv = false;
         vm.orderByDate = "orderByDate";
         vm.mostraLista = false;
         vm.listaEventos = listaEventos;
@@ -34,6 +35,7 @@
         function buscaEvento(evento) {
             eventoService.buscaEvento(evento)  
               .then(function (response) {
+              vm.showdiv = true;  
               evento = response.data;
               evento.data = new Date(evento.data);     
               $state.go('listar.detalhes',{

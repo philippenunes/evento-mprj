@@ -163,9 +163,20 @@ thead tr:hover {
 	margin-top: 10px;
 	padding: 10px;
 	margin-top: 10px;
+	
 }
 
 #evento-detalhe-view {
 	transition: all linear 0.5s;
-	height: 100px;
+	position: relative;
+	top: 0;
+	left: 0;
 }
+
+.ng-hide {
+	height: 0;
+	width: 0;
+	background-color: transparent;
+	top:-200px;
+	left: 200px;
+  }
