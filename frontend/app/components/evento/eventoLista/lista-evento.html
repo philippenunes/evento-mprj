@@ -22,7 +22,7 @@
                     <td>
                         <input id="marginButton"
                          type="button"
-                         class="btn btn-primary btn-sm"
+                         class="style_prevu_kit"
                          ng-click="vm.buscaEvento(evento)"
                          value="+">
                     </td>
@@ -43,8 +43,8 @@
         </div>  
     </div>
   
-    <div class="col-xs-4"> 
-        <div class="evento-detalhe-view" ui-view></div>
+    <div id="evento-detalhe-view" class="col-xs-4"> 
+        <div ui-view></div>
     </div>    
 </div>
 
@@ -52,4 +52,3 @@
     <h1>Não há dados para exibir!  </h1>  
     <h3>Clique <a href="http://localhost:9000/#!/cadastrar">aqui</a> para cadastrar um novo evento.</h3>
 </div>
-

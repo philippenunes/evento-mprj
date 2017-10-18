@@ -1,4 +1,10 @@
 /* Navigation paddings for the body */
+<<<<<<< HEAD
+=======
+/* body {
+  padding-top: 95px;
+} */
+>>>>>>> 45f4a9de9410d05d8d553a8fb3c6f72b1867da44
 .body-short {
   padding-top: 51px !important;
 }
