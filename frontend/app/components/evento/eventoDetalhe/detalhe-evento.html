@@ -1,4 +1,4 @@
-    <div class="evento-detalhe">
+    <!-- <div class="evento-detalhe">
         <table id="tabela-lista-detalhes" class="table table-hover">  
         <caption>Detalhes evento: {{ vm.evento.titulo }}</caption>
             <tr>
@@ -43,7 +43,7 @@
             </tr>  
             <tr>
                 <td>Registro</td>
-                <td>{{ vm.evento.registro }}</td>
+                <td><b>{{ vm.evento.registro }}</b></td>
             </tr> 
             <tr>
                 <td>Observação</td>
@@ -65,4 +65,45 @@
             data-toggle="modal"
             ng-click="vm.excluiEvento(evento)">
         </div>
-    </div>
+    </div> -->
+
+    <div class="evento-detalhe">
+        <div id="titleDetalhes">
+             <h4>
+                <span id="registroEvento">{{ vm.evento.registro }}</span>
+                <span id="statusEvento">{{ vm.evento.status }}</span>
+            </h4><br>
+        </div>
+        <div>
+            <h4>
+                <span><font color="red">{{ vm.evento.data | date:'dd/MM/yyyy' }}</font> {{ vm.evento.inicio }} ás {{ vm.evento.termino }}</span>
+            </h4>
+        </div>  
+        <div>
+            <h3>{{ vm.evento.titulo }}</h3>
+            <h4>{{ vm.evento.solicitante }}</h4>
+            <h4>{{ vm.evento.contato }}</h4>
+            <h4>{{ vm.evento.local }}</h4>
+            <h4>{{ vm.evento.presencaTecnico }}</h4>
+            <h4>{{ vm.evento.observacao }}</h4>
+        </div>
+
+        <div>
+            <input type="button"
+            id="marginButton"
+            class="btn btn-default btn-sm"
+            value="Alterar"
+            ng-click="vm.alteraEvento(evento)">
+
+            <input type="button"
+            id="marginButton"                   
+            class="btn btn-default btn-sm"
+            value="Excluir"
+            data-toggle="modal"
+            ng-click="vm.excluiEvento(evento)">
+        </div>
+        
+
+        <span class="glyphicon glyphicon-print"></span>
+
+    </div>    

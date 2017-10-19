@@ -1,9 +1,10 @@
 (function() {
   'use strict';
 
-  appEvento.config(function($stateProvider, $urlRouterProvider, $locationProvider){
+  appEvento.config(function($httpProvider, $stateProvider, $urlRouterProvider, $locationProvider){
 
 	$urlRouterProvider.otherwise('/login');
+	$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 		
   	$stateProvider
 

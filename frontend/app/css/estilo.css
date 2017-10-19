@@ -169,35 +169,41 @@ thead tr:hover {
 
 /*DETALHE EVENTO*/
 
-.detalhe-evento {
-	transition: all linear 0.5s;
-	background-color: lightblue;
-	height: 100px;
+.evento-detalhe {
+	/* border: 1px solid black; */
+	background-color: #E8E8E8;
+	margin-top: 10px;
+	padding: 10px;
+	margin-top: 10px;
+	text-align: left;
 }
+
+div#titleDetalhes {
+	background: linear-gradient(70deg, black 40%, #363636 40%);
+	color: white;
+	margin-top: -18px;
+	margin-left: -8px;
+	margin-right: -8px;
+	padding: 3px;
+}
+
+div#iconDetalheEvento {
+	float: right;
+	display: inline;
+}
+
+span#registroEvento {
+	display: inline;
+	float:left;
+}
+
+span#statusEvento {
+	display: inline;
+	float:right;
+}
+
 
 #tabela-lista-detalhes {
 	font-family: Myraid ,Pro Frutiger, "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Verdana, sans-serif;
 }
 
-.evento-detalhe {
-	border: 1px solid black;
-	margin-top: 10px;
-	padding: 10px;
-	margin-top: 10px;
-	
-}
-
-#evento-detalhe-view {
-	transition: all linear 0.5s;
-	position: relative;
-	top: 0;
-	left: 0;
-}
-
-.ng-hide {
-	height: 0;
-	width: 0;
-	background-color: transparent;
-	top:-200px;
-	left: 200px;
-  }
