@@ -23,10 +23,13 @@ appEvento.config(function(toastrConfig) {
   });
 });
 
-appEvento.constant('CONSTANTS', {
-  API_URL_EVENTOS: "/sample/api/eventos/",
-  API_URL_PDF: "/sample/api/exportapdf/",
-  API_URL_EXCEL: "/sample/api/exportaexcel/",
-  API_URL_USERS: "/sample/api/user/",
-  API_URL_LOGOUT: "/sample/api/logout/"
+let API_URL_BASE = "/sample/api";  
+
+appEvento.constant('CONSTANTS', {  
+  API_URL_EVENTOS: `${API_URL_BASE}/eventos/`,
+  API_URL_PDF: `${API_URL_BASE}/exportapdf/`,
+  API_URL_EXCEL: `${API_URL_BASE}/exportaexcel/`,
+  API_URL_USERS: `${API_URL_BASE}/user/`,
+  API_URL_LOGOUT: `${API_URL_BASE}/logout/`,
+  API_URL_STATUS: `${API_URL_BASE}/status/`
 })

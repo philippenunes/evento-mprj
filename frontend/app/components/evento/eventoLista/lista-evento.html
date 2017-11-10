@@ -1,6 +1,6 @@
-<div class="table-responsive" ng-show="vm.mostraLista">
+<!-- <div class="table-responsive" ng-show="vm.mostraLista">
     <div class="col-xs-6">        
-        <table class="tabela-lista">   
+        <table class="tabela-lista">
             <thead>
                 <tr>
                     <th>ID</th> 
@@ -46,9 +46,81 @@
     <div class="col-xs-4"> 
         <div ui-view></div>
     </div>    
-</div>
+</div> -->
 
 <div ng-show="!vm.mostraLista">
     <h1>Não há dados para exibir!  </h1>  
     <h3>Clique <a href="http://localhost:9000/#!/cadastrar">aqui</a> para cadastrar um novo evento.</h3>
+</div> 
+
+ <div align="right" class="download.icons">  
+    <button class="btn btn-link" ng-click="vm.exportaExcel()">
+    <span class="glyphicon glyphicon-download-alt"></span>
+    Exportar para Excel
+    </button>
+
+    <button class="btn btn-link" ng-click="vm.exportaPdf()">
+    <span class="glyphicon glyphicon-download-alt"></span>
+    Exportar para Pdf
+    </button>
+</div>  
+
+<div class="top-lista-area">
+    <div align="left" class="form-pesquisa">
+        <form ng-submit="vm.listaPorParametro()">
+            <input type="text" ng-model="vm.evento.registro" placeholder="Registro" maxlength="6pt">            
+            <select id="periodo"
+                ng-model="vm.evento.status"
+                ng-required="true"                
+                ng-options="status.textoStatus for status in vm.status track by status.sigla">
+            </select>
+            <input class="datepicker" ng-model="vm.evento.data" type="date">
+            <input class="btn btn-sm" type="submit" value="Pesquisar"/>
+        </form>
+    </div>
+</div>
+
+<br><br><br>
+
+<div class="container-fluid">
+    <div class="row-form" ng-show="vm.mostraLista">
+        <div ng-repeat="evento in vm.eventos" class="col-md-4">
+            <div class="evento-detalhe">
+                <div id="titleDetalhes">
+                    <h4>
+                        <span id="registroEvento">{{ evento.registro }}</span>                        
+                        <span id="statusEvento">{{ evento.status }}</span>
+                    </h4><br>
+                </div>
+                <div>
+                    <h4>
+                        <span><font color="red">{{ evento.data | date:'dd/MM/yyyy' }}</font> {{ evento.inicio }} ás {{ evento.termino }}</span>
+                    </h4>
+                </div>  
+                <div>
+                    <h3>{{ evento.titulo }}</h3>
+                    <h4>{{ evento.solicitante }}</h4>
+                    <h4>{{ evento.contato }}</h4>
+                    <h4>{{ evento.local }}</h4>
+                    <h4>{{ evento.presencaTecnico }}</h4>
+                    <!-- <h4>{{ evento.observacao }}</h4> -->
+                </div>
+
+                <div>
+                    <input type="button"
+                    id="marginButton"
+                    class="btn btn-default btn-sm"
+                    value="Alterar"
+                    ng-click="vm.alteraEvento(evento)">
+
+                    <input type="button"
+                    id="marginButton"                   
+                    class="btn btn-default btn-sm"
+                    value="Excluir"
+                    data-toggle="modal"
+                    ng-click="vm.excluiEvento(evento)">
+                </div>
+            </div>    
+        </div>
+    </div>
 </div>

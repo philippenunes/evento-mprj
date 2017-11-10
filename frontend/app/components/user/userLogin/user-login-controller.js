@@ -14,35 +14,33 @@
         vm.credentials = {};
         vm.login = login;
         vm.limpaUsuario = limpaUsuario;
-
+        
         function limpaUsuario() {
             vm.credentials = {};
         }    
 
         function login() {
-        // console.log('user controller');
-        // console.log(vm.credentials);
-        var headers = vm.credentials ? {
-            authorization : "Basic "
-            + btoa(vm.credentials.username + ":"
-            + vm.credentials.password)
-        } : {};
+            var headers = vm.credentials ? {
+                authorization : "Basic "
+                + btoa(vm.credentials.username + ":"
+                + vm.credentials.password)
+            } : {};
 
-        userService.login(headers)
-            .then(getLoginSuccess)
-            .catch(getLoginError);
+            userService.login(headers)
+                .then(getLoginSuccess)
+                .catch(getLoginError);
 
-        function getLoginSuccess(data) {
-            $rootScope.authenticated = true;
-            $state.go('home');
-            vm.error = false;
-        }
+            function getLoginSuccess(data) {
+                $rootScope.authenticated = true;
+                $state.go('home');
+                vm.error = false;
+            }
 
-        function getLoginError(message) {
-            $rootScope.authenticated = false;
-            $state.go('login');
-            vm.error = true;
-         }
+            function getLoginError(message) {
+                $rootScope.authenticated = false;
+                $state.go('login');
+                vm.error = true;
+            }
         }
 
 

@@ -21,4 +21,9 @@
     <!--<mappers>-->
         <!--<mapper resourUsuarioRepositorytory"/>-->
     <!--</mappers>-->
+
+    <typeHandlers>
+        <typeHandler handler="com.mprj.eventos.controller.TipoStatusTypeHandler" javaType="com.mprj.eventos.controller.Status"/>
+    </typeHandlers>
+
 </configuration>

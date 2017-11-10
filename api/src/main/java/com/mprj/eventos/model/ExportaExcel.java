@@ -108,7 +108,7 @@ public class ExportaExcel {
             CellUtil.createCell(linha, incrementaIndiceColuna(), listaEventos.get(i).getInicio());
             CellUtil.createCell(linha, incrementaIndiceColuna(), listaEventos.get(i).getTermino());
             CellUtil.createCell(linha, incrementaIndiceColuna(), listaEventos.get(i).getPresencaTecnico());
-            CellUtil.createCell(linha, incrementaIndiceColuna(), listaEventos.get(i).getStatus());
+            CellUtil.createCell(linha, incrementaIndiceColuna(), listaEventos.get(i).getStatusString());
             CellUtil.createCell(linha, incrementaIndiceColuna(), String.valueOf(listaEventos.get(i).getRegistro()));
             CellUtil.createCell(linha, incrementaIndiceColuna(), listaEventos.get(i).getObservacao());
 

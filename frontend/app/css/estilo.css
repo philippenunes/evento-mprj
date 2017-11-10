@@ -19,7 +19,7 @@ body, html
 
 /* MENU PRINCIPAL */
 .navbar-inverse {
-	background: linear-gradient(70deg, black 40%, #363636 40%);
+	background: linear-gradient(70deg, black 40%, #363636 40.6%);
 }
 
 .navbar-second {
@@ -48,15 +48,95 @@ body, html
 	color: white;
 	text-decoration: none;
 	padding: 5px;
-}
-
-/* MENU LATERAL */
+} 
 
 
 
 /* PAINEL DE LOGIN */
 
-.loginPanel{
+.btn-login {
+     width: 100%;       
+     font-family: Verdana;
+}
+
+.form-style-8{
+    font-family: 'Open Sans Condensed', arial, sans;
+    width: 400px;
+    padding: 30px;
+    background: linear-gradient(70deg, black 40%, #363636 41.4%);
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+    border-radius: 4pt;
+
+}
+.form-style-8 h2{
+    background: linear-gradient(70deg, black 29%, #363636 31%);
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+    padding: 20px;
+    margin: -30px -30px 30px -30px;
+    border-bottom: 3px solid #ecf0f1;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+.form-style-8 input[type="text"],
+.form-style-8 input[type="date"],
+.form-style-8 input[type="datetime"],
+.form-style-8 input[type="email"],
+.form-style-8 input[type="number"],
+.form-style-8 input[type="search"],
+.form-style-8 input[type="time"],
+.form-style-8 input[type="url"],
+.form-style-8 input[type="password"],
+.form-style-8 textarea,
+.form-style-8 select 
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    color: white;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+.form-style-8 textarea{
+    resize:none;
+    overflow: hidden;
+}
+/* .form-style-8 input[type="button"], 
+.form-style-8 input[type="submit"]{
+    -moz-box-shadow: inset 0px 1px 0px 0px #337ab7;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #337ab7;
+    box-shadow: inset 0px 1px 0px 0px #337ab7;
+    background-color: #337ab7;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+} */
+.form-style-8 input[type="button"]:hover, 
+.form-style-8 input[type="submit"]:hover {
+     background:linear-gradient(to bottom, #337ab7 5%, #337ab7 100%); 
+     color: white;
+}
+
+/* .loginPanel{
 	width: 420px;
 	height: 300px;
 	margin: 80px auto 0px;
@@ -82,7 +162,7 @@ body, html
 
 .alert-danger {
 	width: 700px;
-}
+} */
 
 /* CADASTRO */
 
@@ -98,83 +178,55 @@ body, html
 
 /*LISTA DE EVENTOS*/
 
-.tabela-lista {
-	border-collapse: collapse;
-	text-align: center;
-    border: 1px solid #666; 
-	font-family: Myraid ,Pro Frutiger, "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Verdana, sans-serif;
+.row {
+	display: inline-block;
 }
 
-.tabela-lista th {
-  font-weight: normal;
-  text-align: center;
-  padding: 0.1em 1em;
-}
-
-.tabela-lista tr {
-	padding: 0.1em 1em;
-}
-
-.tabela tbody tr:nth-child(even) {
-    background-color: #CCC;
+.top-lista-area {
+    background-color: #363636;
+    padding: 10px;
 }
 
 #marginButton {
 	margin: 3px;
 }
 
-.tbody_div_tr_conteudo {
-   float: left;
-}
-
-.tbody_div_tr_botoes {
-   float: right;
-}
-
-thead {
-  background: #ccc url(https://www.devfuria.com.br/html-css/tabelas/bar.gif) repeat-x left center;
-  border-top: 1px solid #a5a5a5;
-  border-bottom: 1px solid #a5a5a5;
-}
-
-thead tr:hover {
-  background-color: transparent;
-  color: inherit;
-}
-
-.even {
-	background-color: #CCC;
-}
-
-.style_prevu_kit {
-	display:inline-block;
-    border:0;
-    width:30px;
-	height:30px;
-	color: white;
-	background-color: #337ab7;
-}
-
-.style_prevu_kit {
-
-}
-
-.style_prevu_kit:hover
+.form-pesquisa input[type="text"],
+.form-pesquisa input[type="number"]
 {
-    box-shadow: 0px 0px 10px #000000;
-    z-index: 1; 
-    -webkit-transition: all 200ms ease-in;  
-    -webkit-transform: scale(1.2); 
+    outline: none;
+    display: inline-block;
+    width: 10%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 30px;
+    color: white;
+}
+.form-pesquisa input[type="button"]:hover, 
+.form-pesquisa input[type="submit"]:hover {
+     background:linear-gradient(to bottom, #337ab7 5%, #337ab7 100%); 
+     color: white;
+}
+.datepicker {
+    border: solid 1px;
+    border-radius: 3px;
+    height: 30px;
 }
 
-/*DETALHE EVENTO*/
+.tabela-pesquisa {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 .evento-detalhe {
 	/* border: 1px solid black; */
 	background-color: #E8E8E8;
 	margin-top: 10px;
 	padding: 10px;
-	margin-top: 10px;
+	margin: 10px;
 	text-align: left;
 }
 

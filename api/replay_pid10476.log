@@ -3291,7 +3291,7 @@ instanceKlass java/util/AbstractList$Itr
 instanceKlass ch/qos/logback/classic/util/LoggerNameUtil
 instanceKlass ch/qos/logback/classic/selector/DefaultContextSelector
 instanceKlass ch/qos/logback/core/util/StatusPrinter
-instanceKlass ch/qos/logback/core/status/StatusUtil
+instanceKlass ch/qos/logback/core/statusString/StatusUtil
 instanceKlass ch/qos/logback/core/spi/AppenderAttachableImpl
 instanceKlass ch/qos/logback/core/util/EnvUtil
 instanceKlass ch/qos/logback/core/pattern/Converter
@@ -3360,7 +3360,7 @@ instanceKlass java/util/ServiceLoader
 instanceKlass ch/qos/logback/classic/util/EnvUtil
 instanceKlass ch/qos/logback/classic/spi/Configurator
 instanceKlass ch/qos/logback/core/spi/ContextAware
-instanceKlass ch/qos/logback/core/status/StatusBase
+instanceKlass ch/qos/logback/core/statusString/StatusBase
 instanceKlass java/net/URLClassLoader$2
 instanceKlass java/util/Collections$3
 instanceKlass java/security/PermissionsEnumerator
@@ -3391,7 +3391,7 @@ instanceKlass java/security/Policy
 instanceKlass ch/qos/logback/core/util/Loader$1
 instanceKlass ch/qos/logback/core/util/Loader
 instanceKlass ch/qos/logback/core/util/OptionHelper
-instanceKlass ch/qos/logback/core/status/StatusListener
+instanceKlass ch/qos/logback/core/statusString/StatusListener
 instanceKlass ch/qos/logback/core/util/StatusListenerConfigHelper
 instanceKlass ch/qos/logback/classic/util/ContextInitializer
 instanceKlass ch/qos/logback/classic/selector/ContextSelector
@@ -3408,10 +3408,10 @@ instanceKlass java/util/concurrent/CopyOnWriteArrayList
 instanceKlass ch/qos/logback/core/spi/LogbackLock
 instanceKlass ch/qos/logback/core/helpers/CyclicBuffer
 instanceKlass ch/qos/logback/core/BasicStatusManager
-instanceKlass ch/qos/logback/core/status/Status
+instanceKlass ch/qos/logback/core/statusString/Status
 instanceKlass java/util/concurrent/ExecutorService
 instanceKlass java/util/concurrent/Executor
-instanceKlass ch/qos/logback/core/status/StatusManager
+instanceKlass ch/qos/logback/core/statusString/StatusManager
 instanceKlass ch/qos/logback/core/ContextBase
 instanceKlass ch/qos/logback/core/spi/LifeCycle
 instanceKlass ch/qos/logback/core/Context

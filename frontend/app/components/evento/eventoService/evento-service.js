@@ -13,6 +13,7 @@
            buscaEvento : buscaEvento,
            excluiEvento : excluiEvento,
            listaEventos : listaEventos,
+           listaPorParametro : listaPorParametro,
            exportarExcel : exportarExcel,
            exportaPdf : exportaPdf
         };
@@ -20,6 +21,7 @@
         return eventoService;
 
         function cadastraEvento(evento) {
+            evento.status = 'PD';
             var promise = $http.post(CONSTANTS.API_URL_EVENTOS, evento)
                 .then(getCadastroSuccess)
                 .catch(getCadastroError);
@@ -81,6 +83,23 @@
 
         function listaEventos() {
             var promise = $http.get(CONSTANTS.API_URL_EVENTOS)
+                .then(getListaSuccess)
+                .catch(getListaError);
+
+                function getListaSuccess(response) {
+                    return response;
+                }
+                function getListaError(err) {
+                    $log.error(`Erro ao realizar o cadastro: ${err.data}`);
+                }
+            return promise;    
+        }
+
+        function listaPorParametro(evento) {
+            // var promise = $http.post(`/mgp-corregedoria/api/${ngsalConfig.apiVersion}/promotor`, {
+
+
+            var promise = $http.get(`${CONSTANTS.API_URL_EVENTOS}lista?registro=${evento.registro}&data=${evento.data.toISOString()}&status=${evento.status.sigla}`)
                 .then(getListaSuccess)
                 .catch(getListaError);
 

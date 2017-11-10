@@ -7,12 +7,13 @@
 
     listaEventoController.$inject  = [
         'eventoService',
+        'statusService',
         '$state',
         'toastr',
         'FileSaver',
         'Blob'];  
 
-    function listaEventoController(eventoService , $state, toastr,
+    function listaEventoController(eventoService , statusService, $state, toastr,
      FileSaver, Blob) {
 
         var vm = this;
@@ -21,15 +22,27 @@
         vm.orderByDate = "orderByDate";
         vm.mostraLista = false;
         vm.listaEventos = listaEventos;
+        vm.listaStatus = listaStatus;
         vm.buscaEvento = buscaEvento;
         vm.exportaExcel = exportaExcel;
         vm.exportaPdf = exportaPdf;
-        vm.eventos = [];
+        vm.listaPorParametro = listaPorParametro;
+        vm.evento = {};
+        vm.eventos = [];        
 
         vm.init();
 
         function init() {
             listaEventos();
+            listaStatus();
+        }
+
+        function listaStatus() {
+           statusService.getStatus()
+            .then((data)=> {
+                vm.status = data;
+                vm.evento.status = vm.status[0];                
+            }); 
         }
        
         function buscaEvento(evento) {
@@ -48,6 +61,28 @@
 
         function listaEventos() {
             eventoService.listaEventos()
+            .then(getListaSuccess)
+            .catch(getListaError);
+
+            function getListaSuccess(response) {
+               if(response != null) {
+                 vm.eventos = response.data;
+                  for (var i = 0 ; i < response.data.length ; i++){
+                    response.data[i].data = new Date(response.data[i].data);
+                }
+                vm.mostraLista = true;
+              } else {
+
+              } 
+            }
+
+            function getListaError() {
+                toastr.error('O servidor não está respondendo!', 'Ocorreu um erro');
+            }
+        }
+
+          function listaPorParametro() {
+           eventoService.listaPorParametro(vm.evento)
             .then(getListaSuccess)
             .catch(getListaError);
 

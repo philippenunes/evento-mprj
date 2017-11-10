@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by philippe.silva on 19/05/2017.
@@ -28,24 +29,35 @@ public class EventoController {
 
     //INSERE
     @RequestMapping(method = RequestMethod.POST, value = "/eventos",
-    consumes = MediaType.APPLICATION_JSON_VALUE)
+            consumes = MediaType.APPLICATION_JSON_VALUE)
     public void castrarEvento(@RequestBody Evento evento){
 
-         eventoService.inserir(evento);
+        eventoService.inserir(evento);
     }
 
     //LISTA
     @RequestMapping(method = RequestMethod.GET, value = "/eventos",
-    produces = MediaType.APPLICATION_JSON_VALUE)
+            produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Collection<Evento>> listaEventos(){
 
         Collection<Evento> lista =  eventoService.listaEventos();
         return new ResponseEntity<Collection<Evento>>(lista, HttpStatus.OK);
     }
 
+    //LISTA POR FILTRO
+    @RequestMapping(value = "/eventos/lista", method = RequestMethod.GET)
+    List<Evento> retornaListaEventos(EventoFilter filter) {
+
+
+        System.out.println("entro" + filter.getRegistro());
+
+        return null;
+    }
+
+
     //BUSCA POR ID
     @RequestMapping(method = RequestMethod.GET, value = "/eventos/{id}",
-    produces= MediaType.APPLICATION_JSON_VALUE)
+            produces= MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Evento> buscaEventoPorId(@PathVariable Integer id){
 
         Evento evento = eventoService.buscaPorId(id);
@@ -68,14 +80,14 @@ public class EventoController {
 
     //ALTERA
     @RequestMapping(method = RequestMethod.PUT, value = "/eventos",
-    consumes = MediaType.APPLICATION_JSON_VALUE)
+            consumes = MediaType.APPLICATION_JSON_VALUE)
     public void alteraEvento(@Valid @RequestBody Evento evento){
 
         eventoService.alteraEvento(evento);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/exportaexcel",
-    produces = "application/vnd.ms-excel")
+            produces = "application/vnd.ms-excel")
     public ResponseEntity<byte[]> exportaExcel() throws IOException {
 
         byte[] bytes = eventoService.exportaListaExcel();

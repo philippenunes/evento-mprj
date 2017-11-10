@@ -32,7 +32,7 @@
 	<field name="inicio" class="java.lang.String"/>
 	<field name="termino" class="java.lang.String"/>
 	<field name="presencaTecnico" class="java.lang.String"/>
-	<field name="status" class="java.lang.String"/>
+	<field name="statusString" class="java.lang.String"/>
 	<field name="registro" class="java.lang.Integer"/>
 	<field name="observacao" class="java.lang.String"/>
 	<background>
@@ -95,7 +95,7 @@
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement key="" style="table_th" x="392" y="0" width="49" height="30" uuid="c98195e8-f23d-4055-bba3-3ba1c72311c5"/>
-				<textFieldExpression><![CDATA[$R{label.status}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$R{label.statusString}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement style="table_th" x="441" y="0" width="49" height="30" uuid="ff72f5d2-9c0c-4928-baf1-cd6abc37b999">
@@ -146,7 +146,7 @@
 			</textField>
 			<textField>
 				<reportElement style="table_td" x="392" y="0" width="49" height="30" uuid="f30fd7fd-4c22-4442-af3c-7b736804e9d6"/>
-				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{statusString}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="table_td" x="441" y="0" width="49" height="30" uuid="f36bd273-10cd-40e2-be03-c5885816dc8f"/>

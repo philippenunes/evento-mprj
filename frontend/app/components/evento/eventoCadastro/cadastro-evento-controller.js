@@ -11,6 +11,7 @@
        
     var vm = this;
     vm.numEventos;
+    vm.buscaRegistroCa = buscaRegistroCa;
     vm.evento = {};   
     vm.eventos = [];
     vm.cadastraEvento = cadastraEvento;
@@ -31,6 +32,10 @@
         quantidadeEventos();
     }
 
+    function buscaRegistroCa() {
+        
+    }
+
     function quantidadeEventos() {
        eventoService.listaEventos()
        .then((response) => {
@@ -40,6 +45,7 @@
     }
 
     function cadastraEvento() {
+        console.log(vm.evento)
         eventoService.cadastraEvento(vm.evento)
         .then(getCadastroSuccess)
         .catch(getCadastroError);

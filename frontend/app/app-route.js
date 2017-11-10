@@ -67,7 +67,7 @@
 
   appEvento.run(function ($rootScope, $state, $location, userService) {
 
-		 var rotasPermitidas = ["/login", "/suporte"];
+		var rotasPermitidas = ["/login", "/suporte"];
 		 
 		$rootScope.$on('$locationChangeStart', function () {
 			var path = $location.path(); 

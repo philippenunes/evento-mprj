@@ -1,5 +1,7 @@
 package com.mprj.eventos.model;
 
+import com.mprj.eventos.controller.Status;
+
 import java.util.Date;
 
 /**
@@ -17,14 +19,21 @@ public class Evento {
     private String inicio;
     private String termino;
     private String presencaTecnico;
-    private String status;
+    private Status status;
+    private String statusString;
     private Integer registro;
     private String observacao;
-   // private Equipamento equipamento;
-
-
     public int getId() {
         return id;
+    }
+    // private Equipamento equipamento;
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public void setId(int id) {
@@ -95,12 +104,12 @@ public class Evento {
         this.presencaTecnico = presencaTecnico;
     }
 
-    public String getStatus() {
-        return status;
+    public String getStatusString() {
+        return statusString;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatusString(String statusString) {
+        this.statusString = statusString;
     }
 
     public Integer getRegistro() {

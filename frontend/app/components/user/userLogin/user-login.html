@@ -2,7 +2,7 @@
   <b>Ocorreu um erro ao tentar realizar o Login, usuário ou senha inválidos.</b>
 </div>
 
-<form class="loginForm" ng-submit="vm.login()">
+<!-- <form class="loginForm" ng-submit="vm.login()">
   <div class="loginPanel">
 
       <div class="loginTitlePanel">
@@ -24,4 +24,13 @@
      </div>
   
   </div>
-</form>
+</form> -->
+
+<div class="form-style-8">
+  <h2>Área Restrita</h2>
+  <form ng-submit="vm.login()">
+    <input type="text" ng-model="vm.credentials.username" placeholder="Usuário" />
+    <input type="password" ng-model="vm.credentials.password" placeholder="Senha" />
+    <input class="btn btn-login" type="submit" value="Autenticar"/>
+  </form>
+</div>

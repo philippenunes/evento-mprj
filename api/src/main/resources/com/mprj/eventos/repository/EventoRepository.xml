@@ -25,7 +25,7 @@
            inicio = #{evento.inicio},
            termino =  #{evento.termino},
            presenca_tecnico = #{evento.presencaTecnico},
-           status = #{evento.status},
+           statusString = #{evento.statusString},
            registro = #{evento.registro},
            observacao = #{evento.observacao}
            WHERE id = #{evento.id}
@@ -71,12 +71,3 @@
     </update>
 
 </mapper>
-
-
-
-
-
-
-
-
-
