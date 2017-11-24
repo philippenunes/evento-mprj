@@ -2,6 +2,7 @@ package com.mprj.eventos.service;
 
 import com.mprj.eventos.model.Evento;
 import com.mprj.eventos.model.ExportaExcel;
+import com.mprj.eventos.model.Status;
 import com.mprj.eventos.repository.EventoRepository;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -33,6 +34,10 @@ public class EventoService {
 
     public Collection<Evento> listaEventos() {
         return eventoRepository.retornaListaDeEventos();
+    }
+
+    public Collection<Evento> listaPorParametro(Integer registro, Status status, Date data) {
+        return eventoRepository.retornaListaPorParametro(registro, status, data);
     }
 
     public Evento buscaPorId(int id) {

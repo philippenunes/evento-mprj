@@ -5,15 +5,15 @@
            .module('appEvento')
            .controller('cadastroController', cadastroController);
 
-    cadastroController.$inject  = ['eventoService', '$uibModal', '$scope', 'toastr', '$state']; 
+    cadastroController.$inject  = ['eventoService', 'statusService', '$uibModal', '$scope', 'toastr', '$state']; 
 
-    function cadastroController(eventoService, $uibModal, $scope, toastr, $state) {
+    function cadastroController(eventoService, statusService, $uibModal, $scope, toastr, $state) {
        
     var vm = this;
     vm.numEventos;
-    vm.buscaRegistroCa = buscaRegistroCa;
     vm.evento = {};   
     vm.eventos = [];
+    vm.listaStatus = listaStatus;
     vm.cadastraEvento = cadastraEvento;
     vm.isEmpty = isEmpty;
     vm.init = init;
@@ -30,11 +30,17 @@
 
     function init() {
         quantidadeEventos();
+        listaStatus();
     }
 
-    function buscaRegistroCa() {
-        
-    }
+     function listaStatus() {
+           statusService.getStatus()
+            .then((data)=> {
+                console.log(data)
+                vm.status = data;
+                vm.evento.status = vm.status[2];                
+            }); 
+        }
 
     function quantidadeEventos() {
        eventoService.listaEventos()
@@ -45,7 +51,7 @@
     }
 
     function cadastraEvento() {
-        console.log(vm.evento)
+        console.log(vm.evento.status)
         eventoService.cadastraEvento(vm.evento)
         .then(getCadastroSuccess)
         .catch(getCadastroError);

@@ -23,7 +23,7 @@
     <!--</mappers>-->
 
     <typeHandlers>
-        <typeHandler handler="com.mprj.eventos.controller.TipoStatusTypeHandler" javaType="com.mprj.eventos.controller.Status"/>
+        <typeHandler handler="com.mprj.eventos.controller.TipoStatusTypeHandler" javaType="com.mprj.eventos.model.Status"/>
     </typeHandlers>
 
 </configuration>

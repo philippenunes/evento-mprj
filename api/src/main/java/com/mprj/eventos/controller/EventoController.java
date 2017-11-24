@@ -1,5 +1,6 @@
 package com.mprj.eventos.controller;
 
+import com.mprj.eventos.filter.EventoFilter;
 import com.mprj.eventos.model.Evento;
 import com.mprj.eventos.service.EventoService;
 import net.sf.jasperreports.engine.JRException;
@@ -13,8 +14,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
-import java.util.List;
+import java.util.Date;
 
 /**
  * Created by philippe.silva on 19/05/2017.
@@ -46,12 +50,19 @@ public class EventoController {
 
     //LISTA POR FILTRO
     @RequestMapping(value = "/eventos/lista", method = RequestMethod.GET)
-    List<Evento> retornaListaEventos(EventoFilter filter) {
+    public ResponseEntity<Collection<Evento>> retornaListaEventos(EventoFilter filter) throws ParseException {
 
+         Date data = null;
 
-        System.out.println("entro" + filter.getRegistro());
+         if(filter.getData() != null) {
+             DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-        return null;
+             String inputData = String.valueOf(filter.getData());
+             data = inputFormat.parse(inputData);
+         }
+
+         Collection<Evento> lista = eventoService.listaPorParametro(filter.getRegistro(), filter.getStatus(), data);
+         return new ResponseEntity<Collection<Evento>>(lista, HttpStatus.OK);
     }
 
 
@@ -86,6 +97,7 @@ public class EventoController {
         eventoService.alteraEvento(evento);
     }
 
+    //EXPORTA EXCEL
     @RequestMapping(method = RequestMethod.GET, value = "/exportaexcel",
             produces = "application/vnd.ms-excel")
     public ResponseEntity<byte[]> exportaExcel() throws IOException {
@@ -98,6 +110,7 @@ public class EventoController {
         return new ResponseEntity<byte[]>(bytes, headers, HttpStatus.ACCEPTED);
     }
 
+    //EXPORTA PDF
     @RequestMapping(method = RequestMethod.GET, value = "/exportapdf",
             produces = "application/pdf")
     public ResponseEntity<byte[]> exportaPDF() throws IOException, JRException {

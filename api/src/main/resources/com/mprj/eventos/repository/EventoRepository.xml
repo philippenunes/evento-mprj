@@ -25,7 +25,7 @@
            inicio = #{evento.inicio},
            termino =  #{evento.termino},
            presenca_tecnico = #{evento.presencaTecnico},
-           statusString = #{evento.statusString},
+           status = #{evento.status},
            registro = #{evento.registro},
            observacao = #{evento.observacao}
            WHERE id = #{evento.id}
@@ -51,6 +51,16 @@
 
     <select id="retornaListaDeEventos" resultMap="com.mprj.eventos.mapeamento.MapeamentoObjetoRepository.retornaListaDeEventos">
         <include refid="selectEvento"/>
+    </select>
+
+    <select id="retornaListaPorParametro" resultMap="com.mprj.eventos.mapeamento.MapeamentoObjetoRepository.retornaListaPorParametro">
+        <include refid="selectEvento"/>
+        WHERE
+        registro = #{registro}
+        OR
+        status = #{status}
+        OR
+        data = #{data}
     </select>
 
     <select id="retornaEventoPorId" resultMap="com.mprj.eventos.mapeamento.MapeamentoObjetoRepository.retornaEventoPorId">

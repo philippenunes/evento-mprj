@@ -1,5 +1,6 @@
 package com.mprj.eventos.controller;
 
+import com.mprj.eventos.model.Status;
 import org.springframework.core.convert.converter.Converter;
 
 public class StringStatusConverter

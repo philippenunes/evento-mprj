@@ -47,12 +47,14 @@
 			</tr>
 			<tr>
 				<td>Status</td>
-				<td><select class="form-control" ng-model="vm.evento.status">
-					    <option selected value="">Selecione...</option>
-						<option value="Em andamento">Em andamento</option>
-						<option value="Pendente documentação">Pendente documentação</option>
-						<option value="Resolvido">Resolvido</option>
-				</select></td>
+				<td>
+					<select id="periodo"
+					class="form-control"
+					ng-model="vm.evento.status"
+					ng-required="true"                
+					ng-options="status.textoStatus for status in vm.status track by status.sigla">
+					</select>
+				</td>
 			</tr>
 			<!--<tr>
 				<td>Notebook <select ng-model="vm.evento.notebook">

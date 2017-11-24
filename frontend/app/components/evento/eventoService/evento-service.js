@@ -96,10 +96,22 @@
         }
 
         function listaPorParametro(evento) {
-            // var promise = $http.post(`/mgp-corregedoria/api/${ngsalConfig.apiVersion}/promotor`, {
+            
+            if(evento.data == null && evento.registro == null) {
+                     var url = `${CONSTANTS.API_URL_EVENTOS}lista?status=${evento.status.sigla}`;
+            }else{
+                if(evento.data == null) {
+                     var url = `${CONSTANTS.API_URL_EVENTOS}lista?registro=${evento.registro}`;
+                }else{
+                    if(evento.registro == null) {
+                        var url = `${CONSTANTS.API_URL_EVENTOS}lista?data=${evento.data.toISOString()}&status=${evento.status.sigla}`;
+                    }else{
+                        var url = `${CONSTANTS.API_URL_EVENTOS}lista?registro=${evento.registro}&data=${evento.data.toISOString()}&status=${evento.status.sigla}`;    
+                    }
+                }    
+            }
 
-
-            var promise = $http.get(`${CONSTANTS.API_URL_EVENTOS}lista?registro=${evento.registro}&data=${evento.data.toISOString()}&status=${evento.status.sigla}`)
+            var promise = $http.get(url)
                 .then(getListaSuccess)
                 .catch(getListaError);
 
