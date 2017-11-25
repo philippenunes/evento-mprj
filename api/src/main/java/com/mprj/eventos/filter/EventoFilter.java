@@ -1,5 +1,6 @@
-package com.mprj.eventos.controller;
+package com.mprj.eventos.filter;
 
+import com.mprj.eventos.model.Status;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
@@ -7,6 +8,7 @@ import java.time.LocalDateTime;
 /**
  * Created by evento.cnmp on 09/11/2017.
  */
+
 public class EventoFilter {
 
 

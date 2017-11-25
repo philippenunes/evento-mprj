@@ -10,6 +10,23 @@ body, html
     height:100%;
 }
 
+@keyframes fadein {
+    from { opacity:0; }
+    to { opacity:1; }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from { opacity:0; }
+    to { opacity:1; }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from { opacity:0; }
+    to { opacity:1; }
+}
+@-o-keyframes fadein { /* Opera */
+    from { opacity:0; }
+    to { opacity: 1; }
+}
+
 /*TOASTR*/
 
 .toast-top-center {
@@ -170,9 +187,15 @@ body, html
 
 /* CADASTRO */
 
+.btn-cadastro {
+    width: 40%;
+    margin-bottom: 5px;
+}
+
 .formulario-de-evento {
 	width: 600px;
-	background-color: #E8E8E8;
+    background-color: #E8E8E8;
+    box-shadow: 7px 7px 10px #888888;
 }
 
 .titulo-formulario {
@@ -182,33 +205,27 @@ body, html
 
 /*LISTA DE EVENTOS*/
 
-.row {
-	display: inline-block;
+.title-lista {
+    background: linear-gradient(70deg, black 40%, #363636 41.4%);
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+    color: white;
+    padding: 1px;    
 }
 
 .top-lista-area {
-    background-color: #363636;
-    padding: 10px;
+    background-color: #E8E8E8;
 }
 
 #marginButton {
-	margin: 3px;
+    margin: 3px;
 }
 
 .form-pesquisa input[type="text"],
 .form-pesquisa input[type="number"]
 {
-    outline: none;
-    display: inline-block;
-    width: 10%;
-    padding: 7px;
-    border: none;
-    border-bottom: 1px solid;
-    background: transparent;
-    margin-bottom: 10px;
-    font: 16px Arial, Helvetica, sans-serif;
-    height: 30px;
-    color: white;
+  width: 6%;
+  height: 20px;  
 }
 .form-pesquisa input[type="button"]:hover, 
 .form-pesquisa input[type="submit"]:hover {
@@ -218,7 +235,7 @@ body, html
 .datepicker {
     border: solid 1px;
     border-radius: 3px;
-    height: 30px;
+    height: 20px;
 }
 
 .tabela-pesquisa {
@@ -227,15 +244,20 @@ body, html
 
 .evento-detalhe {
 	/* border: 1px solid black; */
-	background-color: #E8E8E8;
-	margin-top: 10px;
-	padding: 10px;
+    background-color: #E8E8E8;
+    box-shadow: 7px 7px 10px #888888;
+	padding: 8px;
 	margin: 10px;
-	text-align: left;
+    text-align: left;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+
 }
 
 div#titleDetalhes {
-	background: linear-gradient(70deg, black 40%, #363636 40%);
+	background: linear-gradient(70deg, black 40%, #363636 41.4%);
 	color: white;
 	margin-top: -18px;
 	margin-left: -8px;

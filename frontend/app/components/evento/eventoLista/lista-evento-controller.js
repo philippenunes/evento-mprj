@@ -41,7 +41,7 @@
            statusService.getStatus()
             .then((data)=> {
                 vm.status = data;
-                vm.evento.status = vm.status[0];                
+                vm.evento.status = vm.status[2];                
             }); 
         }
        
@@ -65,6 +65,7 @@
             .catch(getListaError);
 
             function getListaSuccess(response) {
+                console.log(response)
                if(response != null) {
                  vm.eventos = response.data;
                   for (var i = 0 ; i < response.data.length ; i++){
@@ -82,24 +83,29 @@
         }
 
           function listaPorParametro() {
+           blockUI();   
            eventoService.listaPorParametro(vm.evento)
             .then(getListaSuccess)
             .catch(getListaError);
 
             function getListaSuccess(response) {
-               if(response != null) {
+               if(response.data.length != 0) {
                  vm.eventos = response.data;
                   for (var i = 0 ; i < response.data.length ; i++){
                     response.data[i].data = new Date(response.data[i].data);
                 }
+                $.unblockUI();
                 vm.mostraLista = true;
               } else {
-
+                $.unblockUI();  
+                vm.eventos = response.data;
+                toastr.error('Nenhum registro encontrado!', 'Ocorreu um erro');
               } 
             }
 
             function getListaError() {
-                toastr.error('O servidor não está respondendo!', 'Ocorreu um erro');
+                $.unblockUI();
+                toastr.error('Nenhum registro encontrado!', 'Ocorreu um erro');
             }
         }
 

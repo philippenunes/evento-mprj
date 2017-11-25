@@ -1,5 +1,6 @@
 package com.mprj.eventos.controller;
 
+import com.mprj.eventos.model.Status;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.TypeHandler;
 
@@ -18,7 +19,7 @@ public class TipoStatusTypeHandler implements TypeHandler<Status>{
 
     @Override
     public Status getResult(ResultSet resultSet, String s) throws SQLException {
-        return Status.from(s);
+        return Status.from(resultSet.getString(s));
     }
 
     @Override

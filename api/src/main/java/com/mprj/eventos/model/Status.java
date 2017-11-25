@@ -1,4 +1,4 @@
-package com.mprj.eventos.controller;
+package com.mprj.eventos.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -12,12 +12,9 @@ public enum Status {
     PENDENTE_DOCUMENTACAO("PD", "Pendente documentação");
 
     private String textoStatus;
-
     private String sigla;
 
-
     Status(String sigla, String textoStatus) {
-
         this.sigla = sigla;
         this.textoStatus = textoStatus;
     }
@@ -35,7 +32,7 @@ public enum Status {
     }
 
     @JsonCreator
-    static Status from(String statusParam) {
+    public static Status from(String statusParam) {
 
         for(Status status: Status.values()) {
             if(status.sigla.equals(statusParam)) {
@@ -44,5 +41,4 @@ public enum Status {
         }
         return null;
     }
-
 }

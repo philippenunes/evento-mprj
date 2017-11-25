@@ -65,31 +65,41 @@
     </button>
 </div>  
 
+<div class="title-lista">
+  <h4>Lista de eventos cadastrados</h4>
+</div>
+
+<!-- Area de busca -->
 <div class="top-lista-area">
     <div align="left" class="form-pesquisa">
         <form ng-submit="vm.listaPorParametro()">
-            <input type="text" ng-model="vm.evento.registro" placeholder="Registro" maxlength="6pt">            
+            <input type="text" ng-model="vm.evento.registro" placeholder="Registro" maxlength="6pt">  
+            &nbsp;          
             <select id="periodo"
                 ng-model="vm.evento.status"
                 ng-required="true"                
                 ng-options="status.textoStatus for status in vm.status track by status.sigla">
             </select>
+            &nbsp;  
             <input class="datepicker" ng-model="vm.evento.data" type="date">
+            &nbsp;  
             <input class="btn btn-sm" type="submit" value="Pesquisar"/>
         </form>
     </div>
 </div>
+<!-- Fim area de busca -->
 
 <br><br><br>
 
-<div class="container-fluid">
+<!-- Area lista -->
+<div class="container-fluid detalhe">
     <div class="row-form" ng-show="vm.mostraLista">
         <div ng-repeat="evento in vm.eventos" class="col-md-4">
             <div class="evento-detalhe">
                 <div id="titleDetalhes">
                     <h4>
                         <span id="registroEvento">{{ evento.registro }}</span>                        
-                        <span id="statusEvento">{{ evento.status }}</span>
+                        <span id="statusEvento">{{ evento.status.textoStatus }}</span>
                     </h4><br>
                 </div>
                 <div>
@@ -103,7 +113,7 @@
                     <h4>{{ evento.contato }}</h4>
                     <h4>{{ evento.local }}</h4>
                     <h4>{{ evento.presencaTecnico }}</h4>
-                    <!-- <h4>{{ evento.observacao }}</h4> -->
+                    <!-- <h4>{{ evento.observacao }}</h4>  -->
                 </div>
 
                 <div>
@@ -124,3 +134,4 @@
         </div>
     </div>
 </div>
+<!-- Fim area lista -->

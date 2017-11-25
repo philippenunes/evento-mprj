@@ -1,5 +1,6 @@
 package com.mprj.eventos.controller;
 
+import com.mprj.eventos.model.Status;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
