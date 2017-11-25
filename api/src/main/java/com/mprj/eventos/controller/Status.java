@@ -22,16 +22,16 @@ public enum Status {
         this.textoStatus = textoStatus;
     }
 
+    Status(String status) {
+        this.sigla = status;
+    }
+
     public String getSigla() {
         return sigla;
     }
 
     public String getTextoStatus() {
         return textoStatus;
-    }
-
-    Status(String status) {
-        this.sigla = status;
     }
 
     @JsonCreator

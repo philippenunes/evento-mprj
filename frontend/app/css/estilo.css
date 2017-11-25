@@ -59,6 +59,10 @@ body, html
      font-family: Verdana;
 }
 
+.alert-error-login {
+    width: 50%;
+}
+
 .form-style-8{
     font-family: 'Open Sans Condensed', arial, sans;
     width: 400px;
