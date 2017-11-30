@@ -63,9 +63,9 @@
         data = #{data}
     </select>
 
-    <select id="retornaEventoPorId" resultMap="com.mprj.eventos.mapeamento.MapeamentoObjetoRepository.retornaEventoPorId">
+    <select id="retornaEventoPorRegistro" resultMap="com.mprj.eventos.mapeamento.MapeamentoObjetoRepository.retornaEventoPorRegistro">
         <include refid="selectEvento"/>
-        WHERE id = #{id}
+        WHERE registro = #{registro}
     </select>
 
     <insert id="cadastroEvento">

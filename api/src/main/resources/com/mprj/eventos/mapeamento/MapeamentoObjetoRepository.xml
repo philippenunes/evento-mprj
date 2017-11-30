@@ -43,7 +43,7 @@
         <result property="observacao" column="observacao"/>
     </resultMap>
 
-    <resultMap id="retornaEventoPorId" type="com.mprj.eventos.model.Evento">
+    <resultMap id="retornaEventoPorRegistro" type="com.mprj.eventos.model.Evento">
         <id property="id" column="id"></id>
         <result property="solicitante" column="solicitante"/>
         <result property="contato" column="telefone"/>

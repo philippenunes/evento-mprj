@@ -36,7 +36,6 @@
      function listaStatus() {
            statusService.getStatus()
             .then((data)=> {
-                console.log(data)
                 vm.status = data;
                 vm.evento.status = vm.status[2];                
             }); 
@@ -51,24 +50,29 @@
     }
 
     function cadastraEvento() {
-        console.log(vm.evento.status)
-        eventoService.cadastraEvento(vm.evento)
-        .then(getCadastroSuccess)
-        .catch(getCadastroError);
+        eventoService.buscaEvento(vm.evento)
+        .then(() => {
+            toastr.warning('Este registro já existe!', 'Error'); 
+        })
+        .catch(() => {
+            eventoService.cadastraEvento(vm.evento)
+            .then(getCadastroSuccess)
+            .catch(getCadastroError);
 
-        function getCadastroSuccess() {        
-         toastr.success('Evento cadastrado!', 'Sucesso'); 
-         $state.go('listar', {}, {reload: true});
-        }
+            function getCadastroSuccess() {        
+            toastr.success('Evento cadastrado!', 'Sucesso'); 
+            $state.go('listar', {}, {reload: true});
+            }
 
-        function getCadastroError() {
-        if(isEmpty(vm.evento)) {
-            toastr.warning('Nenhum valor informado', 'Error');
-         } else {            
-             toastr.error('Verifique os campos', 'Error');
-         }
-        vm.cadastroSuccess = false;  
-        }
+            function getCadastroError() {
+            if(isEmpty(vm.evento)) {
+                toastr.warning('Nenhum valor informado', 'Error');
+            } else {            
+                toastr.error('Verifique os campos', 'Error');
+            }
+            vm.cadastroSuccess = false;  
+            }
+        });        
      }
     }
 })();

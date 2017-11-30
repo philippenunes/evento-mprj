@@ -64,7 +64,7 @@ public class EventoServiceTest {
         Evento evento = new Evento();
         evento.setId(1);
 
-        when(eventoRepository.retornaEventoPorId(anyInt())).thenReturn(evento);
+        when(eventoRepository.retornaEventoPorRegistro(anyInt())).thenReturn(evento);
 
 
     }
@@ -76,9 +76,9 @@ public class EventoServiceTest {
 //    //BUSCA POR ID
 //    @RequestMapping(method = RequestMethod.GET, value = "/eventos/{id}",
 //            produces= MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseEntity<Evento> buscaEventoPorId(@PathVariable Integer id){
+//    public ResponseEntity<Evento> buscaEventoPorRegistro(@PathVariable Integer id){
 //
-//        Evento evento = eventoService.buscaPorId(id);
+//        Evento evento = eventoService.buscaPorRegistro(id);
 //        return new ResponseEntity<Evento>(evento, HttpStatus.OK);
 //    }
 //
@@ -86,7 +86,7 @@ public class EventoServiceTest {
 //    @RequestMapping(method = RequestMethod.DELETE, value = "/eventos/{id}")
 //    public ResponseEntity<Evento> removeEvento(@PathVariable int id){
 //
-//        Evento eventoEncontrado = eventoService.buscaPorId(id);
+//        Evento eventoEncontrado = eventoService.buscaPorRegistro(id);
 //
 //        if(eventoEncontrado == null){
 //            return new ResponseEntity<Evento>(HttpStatus.NOT_FOUND);

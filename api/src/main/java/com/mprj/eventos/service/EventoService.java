@@ -40,8 +40,8 @@ public class EventoService {
         return eventoRepository.retornaListaPorParametro(registro, status, data);
     }
 
-    public Evento buscaPorId(int id) {
-        return eventoRepository.retornaEventoPorId(id);
+    public Evento buscaPorRegistro(int registro) {
+        return eventoRepository.retornaEventoPorRegistro(registro);
     }
 
     public void removeEvento(Integer id) {

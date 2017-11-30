@@ -66,20 +66,25 @@ public class EventoController {
     }
 
 
-    //BUSCA POR ID
-    @RequestMapping(method = RequestMethod.GET, value = "/eventos/{id}",
+    //BUSCA POR REGISTRO
+    @RequestMapping(method = RequestMethod.GET, value = "/eventos/{registro}",
             produces= MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Evento> buscaEventoPorId(@PathVariable Integer id){
+    public ResponseEntity<Evento> buscaEventoPorRegistro(@PathVariable int registro){
 
-        Evento evento = eventoService.buscaPorId(id);
-        return new ResponseEntity<Evento>(evento, HttpStatus.OK);
+        Evento evento = eventoService.buscaPorRegistro(registro);
+
+        if(evento == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }else{
+            return new ResponseEntity<Evento>(evento, HttpStatus.OK);
+        }
     }
 
     //REMOVE
     @RequestMapping(method = RequestMethod.DELETE, value = "/eventos/{id}")
     public ResponseEntity<Evento> removeEvento(@PathVariable int id){
 
-        Evento eventoEncontrado = eventoService.buscaPorId(id);
+        Evento eventoEncontrado = eventoService.buscaPorRegistro(id);
 
         if(eventoEncontrado == null){
             return new ResponseEntity<Evento>(HttpStatus.NOT_FOUND);

@@ -16,7 +16,7 @@ public interface EventoRepository {
 
     void alteraEvento(@Param(value="evento") Evento evento);
 
-    Evento retornaEventoPorId(@Param(value = "id") Integer id);
+    Evento retornaEventoPorRegistro(@Param(value = "registro") Integer registro);
 
     Collection<Evento> retornaListaPorParametro(@Param(value="registro") Integer registro,
                                                 @Param(value="status") Status status,
