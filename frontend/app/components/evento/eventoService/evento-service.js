@@ -20,8 +20,10 @@
 
         return eventoService;
 
+ // ----------------------------------------------------------------------------------------------------------------------------------------------//
+
         function cadastraEvento(evento) {
-            evento.status = 'PD';
+            evento.status = evento.status.sigla;
             var promise = $http.post(CONSTANTS.API_URL_EVENTOS, evento)
                 .then(getCadastroSuccess)
                 .catch(getCadastroError);
@@ -36,6 +38,8 @@
             
             return promise;
         }
+
+ // ----------------------------------------------------------------------------------------------------------------------------------------------//
 
         function alteraEvento(evento) {
             var promise = $http.put(CONSTANTS.API_URL_EVENTOS, evento)
@@ -52,8 +56,10 @@
             return promise;
         }
 
+ // ----------------------------------------------------------------------------------------------------------------------------------------------//
+
         function buscaEvento(evento) {
-            var promise = $http.get(CONSTANTS.API_URL_EVENTOS + evento.id)
+            var promise = $http.get(CONSTANTS.API_URL_EVENTOS + evento.registro)
                 .then(getBuscaEventoSuccess)
                 .catch(getBuscaEventoError);
 
@@ -66,6 +72,8 @@
                 }
             return promise;
         }
+
+ // ----------------------------------------------------------------------------------------------------------------------------------------------//
 
         function excluiEvento(evento) {
             var promise = $http.delete(CONSTANTS.API_URL_EVENTOS + evento.id)
@@ -81,6 +89,8 @@
             return promise;
         }
 
+ // ----------------------------------------------------------------------------------------------------------------------------------------------//
+
         function listaEventos() {
             var promise = $http.get(CONSTANTS.API_URL_EVENTOS)
                 .then(getListaSuccess)
@@ -94,6 +104,8 @@
                 }
             return promise;    
         }
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------//
 
         function listaPorParametro(evento) {
             
@@ -124,6 +136,8 @@
             return promise;    
         }
 
+ // ----------------------------------------------------------------------------------------------------------------------------------------------//        
+
         function exportarExcel() {
              var promise = $http.get(CONSTANTS.API_URL_EXCEL, {
               responseType: 'blob',
@@ -136,16 +150,18 @@
                    return promise;
           }
 
-          function exportaPdf() {
-             var promise = $http.get(CONSTANTS.API_URL_PDF, {
-              responseType: 'blob',
-              headers:{
-                    Accept:'application/pdf'
-               }
-              }).then(function (response) {
-                   return response.data;
-              });
-                   return promise;
-          }
+ // ----------------------------------------------------------------------------------------------------------------------------------------------//
+
+        function exportaPdf() {
+            var promise = $http.get(CONSTANTS.API_URL_PDF, {
+            responseType: 'blob',
+            headers:{
+                Accept:'application/pdf'
+            }
+            }).then(function (response) {
+                return response.data;
+            });
+                return promise;
+        }
     }
 })();
