@@ -22,6 +22,7 @@
         vm.orderByDate = "orderByDate";
         vm.mostraLista = false;
         vm.listaEventos = listaEventos;
+        vm.alteraEvento = alteraEvento;
         vm.listaStatus = listaStatus;
         vm.buscaEvento = buscaEvento;
         vm.exportaExcel = exportaExcel;
@@ -43,6 +44,12 @@
                 vm.status = data;
                 vm.evento.status = vm.status[2];                
             }); 
+        }
+
+        function alteraEvento(evento) {
+            $state.go('alterar', {
+                evento : evento,
+            });
         }
        
         function buscaEvento(evento) {

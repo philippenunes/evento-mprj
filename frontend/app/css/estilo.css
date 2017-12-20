@@ -82,9 +82,10 @@ body, html
 
 .form-style-8{
     font-family: 'Open Sans Condensed', arial, sans;
-    width: 400px;
+    width: 350px;
     padding: 30px;
-    background: linear-gradient(70deg, black 40%, #363636 41.4%);
+    background-color: #363636;
+    /* background: linear-gradient(70deg, black 42%, #363636 43%); */
     margin: 50px auto;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
@@ -93,7 +94,8 @@ body, html
 
 }
 .form-style-8 h2{
-    background: linear-gradient(70deg, black 29%, #363636 31%);
+    background-color: #363636;
+    /* background: linear-gradient(70deg, black 29%, #363636 31%); */
     text-transform: uppercase;
     font-family: 'Open Sans Condensed', sans-serif;
     color: white;
@@ -188,6 +190,16 @@ body, html
 /* CADASTRO */
 
 .btn-cadastro {
+    width: 40%;
+    margin-bottom: 5px;
+}
+
+.btn-cancelar {
+    width: 40%;
+    margin-bottom: 5px;
+}
+
+.btn-alterar {
     width: 40%;
     margin-bottom: 5px;
 }
