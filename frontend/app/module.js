@@ -16,7 +16,7 @@ appEvento.config(['$qProvider', function ($qProvider) {
 //Configuração global Toastr
 appEvento.config(function(toastrConfig) {
   angular.extend(toastrConfig, {
-    positionClass: 'toast-top-center',
+    positionClass: 'toast-top-right',
     timeOut: 4000,
     maxOpened: 1,
     preventOpenDuplicates: true    

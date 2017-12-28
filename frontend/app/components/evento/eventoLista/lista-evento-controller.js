@@ -105,8 +105,8 @@
                 vm.mostraLista = true;
               } else {
                 $.unblockUI();  
-                vm.eventos = response.data;
-                toastr.error('Nenhum registro encontrado!', 'Ocorreu um erro');
+                listaEventos();
+                toastr.warning('Nenhum registro encontrado!', 'Ocorreu um erro');
               } 
             }
 

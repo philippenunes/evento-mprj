@@ -42,6 +42,7 @@
  // ----------------------------------------------------------------------------------------------------------------------------------------------//
 
         function alteraEvento(evento) {
+            evento.status = evento.status.sigla;
             var promise = $http.put(CONSTANTS.API_URL_EVENTOS, evento)
                 .then(getAlteraSuccess)
                 .catch(getAlteraError);

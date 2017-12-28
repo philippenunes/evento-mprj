@@ -17,17 +17,17 @@
         <![CDATA[
            UPDATE evento
            SET
-           solicitante = #{evento.solicitante},
-           telefone = #{evento.contato},
-           titulo = #{evento.titulo},
-           data = #{evento.data},
-           local = #{evento.local},
-           inicio = #{evento.inicio},
-           termino =  #{evento.termino},
-           presenca_tecnico = #{evento.presencaTecnico},
-           status = #{evento.status},
-           registro = #{evento.registro},
-           observacao = #{evento.observacao}
+               solicitante = #{evento.solicitante},
+               telefone = #{evento.contato},
+               titulo = #{evento.titulo},
+               data = #{evento.data},
+               local = #{evento.local},
+               inicio = #{evento.inicio},
+               termino =  #{evento.termino},
+               presenca_tecnico = #{evento.presencaTecnico},
+               status = #{evento.status},
+               registro = #{evento.registro},
+               observacao = #{evento.observacao}
            WHERE id = #{evento.id}
         ]]>
     </sql>

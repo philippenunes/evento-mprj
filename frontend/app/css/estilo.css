@@ -215,7 +215,9 @@ body, html
 	color: white;
 }
 
-/*LISTA DE EVENTOS*/
+/*
+* LISTA DE EVENTOS
+*/
 
 .title-lista {
     background: linear-gradient(70deg, black 40%, #363636 41.4%);
@@ -256,6 +258,7 @@ body, html
 
 .evento-detalhe {
 	/* border: 1px solid black; */
+    width: 104%;
     background-color: #E8E8E8;
     box-shadow: 7px 7px 10px #888888;
 	padding: 8px;

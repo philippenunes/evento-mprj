@@ -31,7 +31,9 @@ public class EventoController {
     @Autowired
     EventoService eventoService;
 
-    //INSERE
+    /**
+     * Insere evento
+     */
     @RequestMapping(method = RequestMethod.POST, value = "/eventos",
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public void castrarEvento(@RequestBody Evento evento){
@@ -39,7 +41,9 @@ public class EventoController {
         eventoService.inserir(evento);
     }
 
-    //LISTA
+    /**
+     * Lista eventos
+     */
     @RequestMapping(method = RequestMethod.GET, value = "/eventos",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Collection<Evento>> listaEventos(){
@@ -48,7 +52,9 @@ public class EventoController {
         return new ResponseEntity<Collection<Evento>>(lista, HttpStatus.OK);
     }
 
-    //LISTA POR FILTRO
+    /**
+     * Lista eventos por filtro
+     */
     @RequestMapping(value = "/eventos/lista", method = RequestMethod.GET)
     public ResponseEntity<Collection<Evento>> retornaListaEventos(EventoFilter filter) throws ParseException {
 
@@ -66,7 +72,9 @@ public class EventoController {
     }
 
 
-    //BUSCA POR REGISTRO
+    /**
+     * Busca por registro
+     */
     @RequestMapping(method = RequestMethod.GET, value = "/eventos/{registro}",
             produces= MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Evento> buscaEventoPorRegistro(@PathVariable int registro){
@@ -80,7 +88,9 @@ public class EventoController {
         }
     }
 
-    //REMOVE
+    /**
+     * Remove evento
+     */
     @RequestMapping(method = RequestMethod.DELETE, value = "/eventos/{id}")
     public ResponseEntity<Evento> removeEvento(@PathVariable int id){
 
@@ -94,7 +104,9 @@ public class EventoController {
         }
     }
 
-    //ALTERA
+    /**
+     * Altera evento
+     */
     @RequestMapping(method = RequestMethod.PUT, value = "/eventos",
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public void alteraEvento(@Valid @RequestBody Evento evento){
@@ -102,7 +114,9 @@ public class EventoController {
         eventoService.alteraEvento(evento);
     }
 
-    //EXPORTA EXCEL
+    /**
+     * Exporta planilha excel
+     */
     @RequestMapping(method = RequestMethod.GET, value = "/exportaexcel",
             produces = "application/vnd.ms-excel")
     public ResponseEntity<byte[]> exportaExcel() throws IOException {
@@ -115,7 +129,9 @@ public class EventoController {
         return new ResponseEntity<byte[]>(bytes, headers, HttpStatus.ACCEPTED);
     }
 
-    //EXPORTA PDF
+    /**
+     * Exporta arquivo pdf
+     */
     @RequestMapping(method = RequestMethod.GET, value = "/exportapdf",
             produces = "application/pdf")
     public ResponseEntity<byte[]> exportaPDF() throws IOException, JRException {
