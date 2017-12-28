@@ -27,7 +27,7 @@
         }
 
         /*
-         *   Busca a lista de status no Backend e monstra na combo.
+         *  Busca a lista de status no Backend e monstra na combo.
          */    
         function listaStatus(status) {
            statusService.getStatus()
