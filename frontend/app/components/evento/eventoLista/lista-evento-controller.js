@@ -72,7 +72,6 @@
             .catch(getListaError);
 
             function getListaSuccess(response) {
-                console.log(response)
                if(response != null) {
                  vm.eventos = response.data;
                   for (var i = 0 ; i < response.data.length ; i++){
@@ -115,6 +114,8 @@
                 toastr.error('Nenhum registro encontrado!', 'Ocorreu um erro');
             }
         }
+
+        
 
         function exportaExcel() {
           blockUI();
