@@ -6,15 +6,23 @@
         .module('appEvento')
         .controller('detalheEventoController', detalheEventoController)
 
-          detalheEventoController.$inject = ['eventoService', '$state', '$scope', '$uibModal', 'toastr']    
+          detalheEventoController.$inject = [
+              'eventoService',
+              '$state',
+              '$scope',
+              '$uibModal',
+              'toastr',
+              'objeto',
+              '$uibModalInstance'
+            ]    
 
-    function detalheEventoController(eventoService, $state, $scope, $uibModal, toastr){
+    function detalheEventoController(eventoService, $state, $scope, $uibModal, toastr, objeto, $uibModalInstance){
         var vm = this;
         vm.init = init;
-        vm.alteraEvento = alteraEvento;
+        vm.closeModal = closeModal;
         vm.excluiEvento = excluiEvento;
         vm.isEmpty = isEmpty;
-        vm.evento = {};
+        vm.evento = objeto.evento;
         vm.init();
 
 
@@ -24,16 +32,16 @@
         }
 
         function init() {
-            vm.evento = $state.params.evento;
-            if(isEmpty(vm.evento)){
-                $state.go('listar');
-            }
+            // vm.evento = $state.params.evento;
+            // if(isEmpty(vm.evento)){
+            //     $state.go('listar');
+            // } else {
+            //     modalDetalhes();
+            // }
         };
 
-        function alteraEvento() {
-            $state.go('alterar', {
-                evento : this.evento,
-            });
+        function closeModal() {
+            $uibModalInstance.dismiss();
         }
 
         function excluiEvento() {

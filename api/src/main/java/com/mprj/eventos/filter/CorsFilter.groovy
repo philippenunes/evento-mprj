@@ -6,7 +6,7 @@ import javax.servlet.*
 import javax.servlet.http.HttpServletResponse
 
 /**
- * @author Lennon Jesus
+ * @author Philippe Nunes
  */
 @Component
 public class CorsFilter implements Filter {

@@ -2,13 +2,16 @@
 <html lang="en" ng-app="appEvento">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>MPRJ - Eventos</title>  
-	<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./bower_components/angular-toastr/dist/angular-toastr.css">
-	<link rel="stylesheet" type="text/css" href="./bower_components/angular-block-ui/dist/angular-block-ui.css" />
+	<link rel="stylesheet" type="text/css" href="./bower_components/angular-block-ui/dist/angular-block-ui.css"/>
+	<link rel="stylesheet" type="text/css" href="./bower_components/MDBootstrap/css/mdb.min.css"/>
+	<!-- <link rel="stylesheet" type="text/css" href="./semantic/out/semantic.min.css"/> -->
 	<link rel="stylesheet" type="text/css" href="./css/estilo.css">
 	<link rel="stylesheet" type="text/css" href="./css/atlas.toolkit.css">
+	<link rel="stylesheet" type="text/css" href="./css/lista-eventos.css">
 </head>
 
 <body>
@@ -33,7 +36,6 @@
 	</div>
 </div> 
 
-
 <div class="navbar-second">
 versão 2.0 
 </div>	
@@ -43,7 +45,7 @@ versão 2.0
 <div ui-view class="container-fluid" align="center">
 </div>
 
-
+<!-- JavaScript -->
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../bower_components/angular/angular.min.js"></script>
@@ -56,11 +58,13 @@ versão 2.0
 <script src="../bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
 <script src="../bower_components/angular/angular.js"></script>
 <script src="../bower_components/angular-animate/angular-animate.js"></script>
+<script src="../bower_components/MDBootstrap/js/mdb.min.js"></script>
 
 <script src="./module.js"></script>
 <script src="./app-route.js"></script>
-<script src="./blockUI.js"></script>
-<script src="./blockUI-plugin.js"></script>
+<script src="./js/blockUI.js"></script>
+<script src="./js/blockUI-plugin.js"></script>
+<script src="./js/lista-eventos.js"></script>
 
 <script src="./components/evento/eventoCadastro/cadastro-evento-controller.js"></script> 
 <script src="./components/evento/eventoDetalhe/detalhe-evento-controller.js"></script>
@@ -73,9 +77,10 @@ versão 2.0
 <script src="./components/user/userLogout/user-logout-controller.js"></script>
 <script src="./components/user/userInfo/user-info-controller.js"></script>
 <script src="./components/user/userService/user-service.js"></script>  	 
-<script src="./components/evento/status/status.service.js"></script>  	 
+<script src="./components/evento/status/status.service.js"></script>  
+<!-- <script src="./semantic/out/semantic.min.js"></script>	 -->
 
+<!-- Fim JavaScript -->
 
-	    	  	 	
 </body>
 </html>

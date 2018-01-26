@@ -11,23 +11,24 @@
         '$state',
         'toastr',
         'FileSaver',
-        'Blob'];  
+        'Blob',
+        '$uibModal'];  
 
     function listaEventoController(eventoService , statusService, $state, toastr,
-     FileSaver, Blob) {
+     FileSaver, Blob, $uibModal) {
 
         var vm = this;
         vm.init = init;
-        vm.showdiv = false;
         vm.orderByDate = "orderByDate";
         vm.mostraLista = false;
+       // vm.alteraEvento = alteraEvento;
         vm.listaEventos = listaEventos;
-        vm.alteraEvento = alteraEvento;
         vm.listaStatus = listaStatus;
         vm.buscaEvento = buscaEvento;
         vm.exportaExcel = exportaExcel;
         vm.exportaPdf = exportaPdf;
         vm.listaPorParametro = listaPorParametro;
+        vm.modalDetalhes = modalDetalhes;
         vm.evento = {};
         vm.eventos = [];        
 
@@ -46,16 +47,29 @@
             }); 
         }
 
-        function alteraEvento(evento) {
-            $state.go('alterar', {
-                evento : evento,
-            });
+        // function alteraEvento(evento) {
+        //     $state.go('alterar', {
+        //         evento : evento,
+        //     });
+        // }
+        
+
+        function modalDetalhes(evento) {  
+            return $uibModal.open({
+                templateUrl:'components/evento/eventoDetalhe/detalhe-evento.html',
+                controller: 'detalheEventoController',
+                controllerAs: 'vm',
+                resolve: {
+                    objeto: () => {
+                        return {evento: evento};
+                    }
+                }
+            })
         }
        
         function buscaEvento(evento) {
             eventoService.buscaEvento(evento)  
               .then(function (response) {
-              vm.showdiv = true;  
               evento = response.data;
               evento.data = new Date(evento.data);     
               $state.go('listar.detalhes',{
@@ -88,7 +102,7 @@
             }
         }
 
-          function listaPorParametro() {
+        function listaPorParametro() {
            blockUI();   
            eventoService.listaPorParametro(vm.evento)
             .then(getListaSuccess)
@@ -114,8 +128,6 @@
                 toastr.error('Nenhum registro encontrado!', 'Ocorreu um erro');
             }
         }
-
-        
 
         function exportaExcel() {
           blockUI();
@@ -146,7 +158,6 @@
                 $.unblockUI();
             });
         }
-
-        
+  
     }
 })();

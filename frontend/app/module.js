@@ -33,3 +33,4 @@ appEvento.constant('CONSTANTS', {
   API_URL_LOGOUT: `${API_URL_BASE}/logout/`,
   API_URL_STATUS: `${API_URL_BASE}/status/`
 })
+

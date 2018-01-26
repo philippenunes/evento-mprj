@@ -4,12 +4,12 @@
 </div> 
 
  <div align="right" class="download.icons">  
-    <button class="btn btn-link" ng-click="vm.exportaExcel()">
+    <button class="btn-link" ng-click="vm.exportaExcel()">
     <span class="glyphicon glyphicon-download-alt"></span>
     Exportar para Excel
     </button>
 
-    <button class="btn btn-link" ng-click="vm.exportaPdf()">
+    <button class="btn-link" ng-click="vm.exportaPdf()">
     <span class="glyphicon glyphicon-download-alt"></span>
     Exportar para Pdf
     </button>
@@ -33,7 +33,7 @@
             &nbsp;  
             <input class="datepicker" ng-model="vm.evento.data" type="date">
             &nbsp;  
-            <input class="btn btn-sm" type="submit" value="Pesquisar"/>
+            <input class="btn btn-primary" type="submit" value="Pesquisar"/>
         </form>
     </div>
 </div>
@@ -42,11 +42,11 @@
 <br><br><br>
 
 <!-- Area lista -->
-<div class="container-fluid detalhe">
+<div class="container-fluid">
     <div class="row-form" ng-show="vm.mostraLista">
         <div ng-repeat="evento in vm.eventos" class="col-md-4">
-            <div class="evento-detalhe">
-                <div id="titleDetalhes">
+            <div class="evento-detalhe animated bounceIn">
+                <div id="titleCard">
                     <h4>
                         <span id="registroEvento">{{ evento.registro }}</span>                        
                         <span id="statusEvento">{{ evento.status.textoStatus }}</span>
@@ -54,7 +54,8 @@
                 </div>
                 <div>
                     <h4>
-                        <span><font color="red">{{ evento.data | date:'dd/MM/yyyy' }}</font> {{ evento.inicio }} ás {{ evento.termino }}</span>
+                        <span><font color="red">{{ evento.data | date:'dd/MM/yyyy' }}</font></span>
+                        <span>{{ evento.inicio }} ás {{ evento.termino }}</span>
                     </h4>
                 </div>  
                 <div>
@@ -62,11 +63,16 @@
                     <h4>{{ evento.solicitante }}</h4>
                     <h4>{{ evento.contato }}</h4>
                     <h4>{{ evento.local }}</h4>
-                    <h4>{{ evento.presencaTecnico }}</h4>
-                    <!-- <h4>{{ evento.observacao }}</h4>  -->
                 </div>
 
                 <div>
+                    <input type="button" id="marginButton"
+                     class="btn btn-primary" 
+                     value="Detalhes" ng-click="vm.modalDetalhes(evento)"
+                     data-toggle="tooltip" title="Exibe detalhes do evento.">
+                </div>
+
+                <!-- <div>
                     <input type="button"
                     id="marginButton"
                     class="btn btn-default btn-sm"
@@ -79,9 +85,10 @@
                     value="Excluir"
                     data-toggle="modal"
                     ng-click="vm.excluiEvento(evento)">
-                </div>
+                </div> -->
             </div>    
         </div>
     </div>
 </div>
 <!-- Fim area lista -->
+
