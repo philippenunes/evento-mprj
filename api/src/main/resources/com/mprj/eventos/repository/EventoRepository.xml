@@ -6,10 +6,11 @@
         <![CDATA[
            INSERT INTO evento
            (solicitante, telefone, titulo, data, local, inicio,
-            termino, presenca_tecnico, status, registro, observacao)
+            termino, presenca_tecnico, status, registro, observacao, criado_por)
            VALUES
            (#{evento.solicitante}, #{evento.contato}, #{evento.titulo}, #{evento.data}, #{evento.local}, #{evento.inicio},
-            #{evento.termino}, #{evento.presencaTecnico}, #{evento.status}, #{evento.registro}, #{evento.observacao})
+            #{evento.termino}, #{evento.presencaTecnico}, #{evento.status}, #{evento.registro}, #{evento.observacao},
+             #{evento.criadoPor})
         ]]>
     </sql>
 
@@ -27,7 +28,8 @@
                presenca_tecnico = #{evento.presencaTecnico},
                status = #{evento.status},
                registro = #{evento.registro},
-               observacao = #{evento.observacao}
+               observacao = #{evento.observacao},
+               criado_por = #{evento.criadoPor}
            WHERE id = #{evento.id}
         ]]>
     </sql>

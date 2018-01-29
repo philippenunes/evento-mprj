@@ -1,29 +1,49 @@
  <!-- Modal -->
 
-<div class="modal-content">
+<div class="modal-content modal-detalhes">
     <div class="modal-header">
-        <button type="button" class="close" aria-label="Close" ng-click="vm.closeModal()"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close close-button-modal" aria-label="Close" ng-click="vm.closeModal()"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Detalhes do evento {{ vm.evento.titulo }}</h4>
     </div>
     <div class="modal-body"  align="center">
-        <div>
-            <h4>
-                <span><font color="red">{{ vm.evento.data | date:'dd/MM/yyyy' }}</font> {{ vm.evento.inicio }} ás {{ vm.evento.termino }}</span>
-            </h4>
-        </div>  
-        <div>
-            <h3>{{ vm.evento.titulo }}</h3>
-            <h4>{{ vm.evento.solicitante }}</h4>
-            <h4>{{ vm.evento.contato }}</h4>
-            <h4>{{ vm.evento.local }}</h4>
-            <h4>{{ vm.evento.presencaTecnico }}</h4>
-            <h4>{{ vm.evento.status.textoStatus }}</h4>
-            <h4>{{ vm.evento.observacao }}</h4>
+        <div>  
+            <h4><font color="red">{{ vm.evento.data | date:'dd/MM/yyyy' }}</font> {{ vm.evento.inicio }} ás {{ vm.evento.termino }}</h4>
+            <p>Solicitação criada por: {{ vm.evento.criadoPor }}</p>     
+            <table class="table-bordered tabela-detalhes">
+                    <tr>
+                        <td><h3>Titulo do evento:</h3></td>
+                        <td><h3>{{ vm.evento.titulo }}</h3></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Solicitante:</h4></td>
+                        <td><h3>{{ vm.evento.solicitante }}</h3></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Contato:</h4></td>
+                        <td><h4>{{ vm.evento.contato }}</h4></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Local:</h4></td>
+                        <td><h4>{{ vm.evento.local }}</h4></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Presença:</h4></td>
+                        <td><h4>{{ vm.evento.presencaTecnico }}</h4></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Status:</h4></td>
+                        <td><h4>{{ vm.evento.status.textoStatus }}</h4></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Obvervações:</h4></td>
+                        <td><h4>{{ vm.evento.observacao }}</h4></td>
+                    </tr>    
+            </table>
         </div>
-    </div>
     <div>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Alterar</button>
-        <button type="button" class="btn btn-danger">Excluir</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vm.alteraEvento()">Alterar</button>
+        <button type="button" class="btn btn-danger" ng-click="vm.excluiEvento()">Encerrar solicitação</button>
+    </div>
     </div>
 </div>
 

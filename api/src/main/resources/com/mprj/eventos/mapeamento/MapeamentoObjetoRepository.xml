@@ -26,6 +26,7 @@
         <result property="status" column="status" typeHandler="com.mprj.eventos.controller.TipoStatusTypeHandler"/>
         <result property="registro" column="registro"/>
         <result property="observacao" column="observacao"/>
+        <result property="criadoPor" column="criado_por"/>
     </resultMap>
 
     <resultMap id="retornaListaPorParametro" type="com.mprj.eventos.model.Evento">
@@ -41,6 +42,7 @@
         <result property="status" column="status" typeHandler="com.mprj.eventos.controller.TipoStatusTypeHandler"/>
         <result property="registro" column="registro"/>
         <result property="observacao" column="observacao"/>
+        <result property="criadoPor" column="criado_por"/>
     </resultMap>
 
     <resultMap id="retornaEventoPorRegistro" type="com.mprj.eventos.model.Evento">
@@ -56,6 +58,7 @@
         <result property="status" column="status"/>
         <result property="registro" column="registro"/>
         <result property="observacao" column="observacao"/>
+        <result property="criadoPor" column="criado_por"/>
     </resultMap>
 
 </mapper>

@@ -5,9 +5,17 @@
            .module('appEvento')
            .controller('cadastroController', cadastroController);
 
-    cadastroController.$inject  = ['eventoService', 'statusService', '$uibModal', '$scope', 'toastr', '$state']; 
+    cadastroController.$inject  = [
+        'eventoService',
+        'statusService',
+        '$uibModal',
+        '$scope',
+        'toastr',
+        '$state',
+        '$rootScope'
+    ]; 
 
-    function cadastroController(eventoService, statusService, $uibModal, $scope, toastr, $state) {
+    function cadastroController(eventoService, statusService, $uibModal, $scope, toastr, $state, $rootScope) {
        
     var vm = this;
     vm.numEventos;
@@ -50,30 +58,29 @@
     }
 
     function cadastraEvento() {
-        eventoService.buscaEvento(vm.evento)
-        .then(() => {
-            toastr.warning('Este registro já existe!', 'Error'); 
-        })
-        .catch(() => {
+        // eventoService.buscaEvento(vm.evento)
+        // .then(() => {
+        //     toastr.warning('Este registro já existe!', 'Error'); 
+        // })
+            vm.evento.criadoPor = $rootScope.username;
             eventoService.cadastraEvento(vm.evento)
             .then(getCadastroSuccess)
             .catch(getCadastroError);
 
             function getCadastroSuccess() {        
-            toastr.success('Evento cadastrado!', 'Sucesso'); 
-            $state.go('listar', {}, {reload: true});
+                toastr.success('Evento cadastrado!', 'Sucesso'); 
+                $state.go('listar', {}, {reload: true});
             }
 
             function getCadastroError() {
-            if(isEmpty(vm.evento)) {
-                toastr.warning('Nenhum valor informado', 'Error');
-            } else {            
-                toastr.error('Verifique os campos', 'Error');
-            }
-            vm.cadastroSuccess = false;  
-            }
-        });        
-     }
+                if(isEmpty(vm.evento)) {
+                    toastr.warning('Nenhum valor informado', 'Error');
+                } else {            
+                    toastr.error('Verifique os campos', 'Error');
+                }
+                vm.cadastroSuccess = false;  
+            }       
+        }
     }
 })();
 

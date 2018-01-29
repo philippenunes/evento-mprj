@@ -27,7 +27,7 @@
         }
 
         /*
-         *  Busca a lista de status no Backend e monstra na combo.
+         *  Busca o status do evento solicitado e coloca na combo.
          */    
         function listaStatus(status) {
            statusService.getStatus()
@@ -47,15 +47,6 @@
                         return {evento: vm.evento};
                    }
                 }
-            }).result
-            .then( (data) => {
-                 if( data === true) {
-                   toastr.success('O Registro foi alterado!', 'Sucesso');
-                 } 
-                $state.go('listar'); 
-            })
-            .catch( () => {
-                toastr.error('Verifique os campos!', 'Registro não alterado');    
             })
         }
      }

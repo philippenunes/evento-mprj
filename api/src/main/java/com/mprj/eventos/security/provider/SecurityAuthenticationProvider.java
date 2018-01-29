@@ -31,10 +31,10 @@ public class SecurityAuthenticationProvider implements AuthenticationProvider {
         user.setUser(name);
         user.setPassword(password);
 
-//        Usuario userAuthenticated;
-//        userAuthenticated = usuarioService.loginUsuario(user);
+        Usuario userAuthenticated;
+        userAuthenticated = usuarioService.loginUsuario(user);
 
-        if(user != null) {
+        if(userAuthenticated != null) {
             if (name.equals("philippenunes")) {
                 List<GrantedAuthority> grantedAuths = new ArrayList<GrantedAuthority>();
                 grantedAuths.add(new SimpleGrantedAuthority("ROLE_ADMIN"));

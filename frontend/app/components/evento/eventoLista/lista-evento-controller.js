@@ -52,7 +52,6 @@
         //         evento : evento,
         //     });
         // }
-        
 
         function modalDetalhes(evento) {  
             return $uibModal.open({
@@ -81,6 +80,7 @@
         }
 
         function listaEventos() {
+            blockUI();
             eventoService.listaEventos()
             .then(getListaSuccess)
             .catch(getListaError);
@@ -91,6 +91,7 @@
                   for (var i = 0 ; i < response.data.length ; i++){
                     response.data[i].data = new Date(response.data[i].data);
                 }
+                $.unblockUI();
                 vm.mostraLista = true;
               } else {
 
@@ -98,6 +99,7 @@
             }
 
             function getListaError() {
+                $.unblockUI();
                 toastr.error('O servidor não está respondendo!', 'Ocorreu um erro');
             }
         }

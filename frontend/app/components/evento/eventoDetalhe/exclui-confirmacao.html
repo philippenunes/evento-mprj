@@ -1,15 +1,15 @@
 
 <div class="modal-content">
 	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+		<button type="button" class="close" data-dismiss="modal" ng-click="vm.closeModal()"><span>×</span></button>
 		<h4 class="modal-title">Confirmação</h4>
 	</div>
 	<div class="modal-body">
-		<p>Deseja realmente excluir esse registro?</p>
+		<p>Deseja realmente encerrar esta solicitação?</p>
 	</div>
-	<div class="modal-footer">
-		<button type="button" class="btn btn-warning" data-dismiss="modal" ng-click="vm.excluiEvento()">Excluir</button>
+	<div>
 		<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vm.closeModal()">Cancelar</button>
+		<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="vm.excluiEvento()">Confirmar</button>
 	</div>
 </div>
 

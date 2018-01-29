@@ -5,25 +5,27 @@
         .module('appEvento')
         .controller('ModalInstanceConfirmaAlteracaoController', ModalInstanceConfirmaAlteracaoController);
 
-    ModalInstanceConfirmaAlteracaoController.inject = ['eventoService', '$uibModalInstance', 'objeto'];
+    ModalInstanceConfirmaAlteracaoController.inject = ['eventoService', '$uibModalInstance', 'objeto', 'toastr'];
 
-    function ModalInstanceConfirmaAlteracaoController(eventoService, $uibModalInstance, objeto) {
+    function ModalInstanceConfirmaAlteracaoController(eventoService, $uibModalInstance, objeto, toastr) {
         var vm = this;
         vm.alteraEvento = alteraEvento;
         vm.evento = objeto.evento;
-        vm.closeModal = closeModal;
 
         function alteraEvento() {
-            eventoService.alteraEvento(vm.evento)
-            .then(() => {
+           var promise = eventoService.alteraEvento(vm.evento)
+            .then(function(data) {
                 $uibModalInstance.close(true);
-            }).catch( () => {
+                if(data === true) {
+                    toastr.success('O Registro foi alterado!', 'Sucesso');
+                  } 
+                 $state.go('listar'); 
+            }).catch(function() {
                 $uibModalInstance.dismiss();
+                toastr.error('Verifique os campos!', 'Registro não alterado'); 
             });
-        }
-
-        function closeModal() {
-          $uibModalInstance.close(false);
+            return promise;
         }
     }
 })();
+

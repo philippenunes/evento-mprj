@@ -62,22 +62,18 @@
         function buscaEvento(evento) {
             var promise = $http.get(CONSTANTS.API_URL_EVENTOS + evento.registro)
                 .then(getBuscaEventoSuccess)
-                .catch(getBuscaEventoError);
 
-                function getBuscaEventoSuccess(response) { 
-                    //$log.info(`evento retornado: ${response.data}`);                  
+                function getBuscaEventoSuccess(response) {             
                     return response;
                 }
-                function getBuscaEventoError(error) {                    
-                    logger.error('XHR Failed for buscaEvento.' + error.data);
-                }
+
             return promise;
         }
 
  // ----------------------------------------------------------------------------------------------------------------------------------------------//
 
         function excluiEvento(evento) {
-            var promise = $http.delete(CONSTANTS.API_URL_EVENTOS + evento.id)
+            var promise = $http.delete(CONSTANTS.API_URL_EVENTOS + evento.registro)
                 .then(getExcluiSuccess)
                 .catch(getExcluiError);
                 

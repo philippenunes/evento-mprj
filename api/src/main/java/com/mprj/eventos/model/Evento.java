@@ -21,6 +21,7 @@ public class Evento {
     private Status status;
     private Integer registro;
     private String observacao;
+    private String criadoPor;
 
     public int getId() {
         return id;
@@ -116,5 +117,13 @@ public class Evento {
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+
+    public String getCriadoPor() {
+        return criadoPor;
+    }
+
+    public void setCriadoPor(String criadoPor) {
+        this.criadoPor = criadoPor;
     }
 }

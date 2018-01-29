@@ -75,6 +75,7 @@
 				userService.login()
 				.then(function (response) {
 					$rootScope.authenticated = true;
+					$rootScope.username = response.data.principal;;
 				})
 				.catch(function () {
 					$rootScope.authenticated = false;

@@ -21,6 +21,7 @@
         vm.init = init;
         vm.closeModal = closeModal;
         vm.excluiEvento = excluiEvento;
+        vm.alteraEvento = alteraEvento;
         vm.isEmpty = isEmpty;
         vm.evento = objeto.evento;
         vm.init();
@@ -44,6 +45,13 @@
             $uibModalInstance.dismiss();
         }
 
+        function alteraEvento() {
+            closeModal();
+            $state.go('alterar', {
+                evento : vm.evento,
+            });
+        }
+
         function excluiEvento() {
             return $uibModal.open({
                 templateUrl:"components/evento/eventoDetalhe/exclui-confirmacao.html",
@@ -57,12 +65,13 @@
             }).result
             .then( (data) => {
                  if( data === true) {
-                   toastr.success('Registro excluído!', 'Sucesso');
+                   $uibModalInstance.dismiss();  
+                   toastr.success('Solicitação encerrada!', 'Sucesso');
                    $state.go('listar', {}, { reload: 'listar' });
                  } 
             })
             .catch( () => {
-                 toastr.error('O registro não foi excluído!', 'Ocorreu um erro');
+                 toastr.error('A solicitação não foi encerrada!', 'Ocorreu um erro');
             })
         }
     }

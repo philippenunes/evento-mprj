@@ -20,6 +20,7 @@
         }    
 
         function login() {
+            blockUI();
             var headers = vm.credentials ? {
                 authorization : "Basic "
                 + btoa(vm.credentials.username + ":"
@@ -31,12 +32,15 @@
                 .catch(getLoginError);
 
             function getLoginSuccess(data) {
+                $.unblockUI();
                 $rootScope.authenticated = true;
+                $rootScope.username = vm.credentials.username;
                 $state.go('home');
                 vm.error = false;
             }
 
             function getLoginError(message) {
+                $.unblockUI();
                 $rootScope.authenticated = false;
                 $state.go('login');
                 vm.error = true;

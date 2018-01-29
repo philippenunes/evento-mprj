@@ -6,10 +6,6 @@
     padding: 1px;    
 }
 
-.top-lista-area {
-    background-color: #E8E8E8;
-}
-
 #marginButton {
     margin: 3px;
 }
@@ -69,4 +65,14 @@ span#statusEvento {
 }
 
 
+/* MODAL */
+
+.tabela-detalhes {
+    width: 100%;
+    text-align: center;
+}
+
+.modal-header {
+
+}
 

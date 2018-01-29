@@ -72,7 +72,7 @@ body, html
 /* PAINEL DE LOGIN */
 
 .btn-login {
-     width: 100%;       
+     width: 90%;       
      font-family: Verdana;
 }
 
@@ -85,7 +85,6 @@ body, html
     width: 350px;
     padding: 30px;
     background-color: #363636;
-    /* background: linear-gradient(70deg, black 42%, #363636 43%); */
     margin: 50px auto;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
@@ -95,7 +94,6 @@ body, html
 }
 .form-style-8 h2{
     background-color: #363636;
-    /* background: linear-gradient(70deg, black 29%, #363636 31%); */
     text-transform: uppercase;
     font-family: 'Open Sans Condensed', sans-serif;
     color: white;
@@ -137,6 +135,10 @@ body, html
 .form-style-8 textarea{
     resize:none;
     overflow: hidden;
+}
+
+.form-style-8 input[type="submit"]{
+    background-color: black;
 }
 
 .form-style-8 input[type="button"]:hover, 
