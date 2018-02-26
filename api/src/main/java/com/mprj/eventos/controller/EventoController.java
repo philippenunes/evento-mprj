@@ -53,7 +53,7 @@ public class EventoController {
     }
 
     /**
-     * Lista eventos por filtro
+     * Lista evento por filtro
      */
     @RequestMapping(value = "/eventos/lista", method = RequestMethod.GET)
     public ResponseEntity<Collection<Evento>> retornaListaEventos(EventoFilter filter) throws ParseException {
