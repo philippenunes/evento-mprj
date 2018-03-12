@@ -31,9 +31,8 @@
             function getCadastroSuccess(response) {            
                 return response.data;
             }    
-            function getCadastroError(err) {                
-                $log.error(`Erro ao realizar o cadastro: ${err.data}`); 
-                return $q.reject();                
+            function getCadastroError(err) {                 
+                return $q.reject(err);                
             }
             
             return promise;

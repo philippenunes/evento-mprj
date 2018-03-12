@@ -36,9 +36,17 @@ public class EventoController {
      */
     @RequestMapping(method = RequestMethod.POST, value = "/eventos",
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void castrarEvento(@RequestBody Evento evento){
+    public ResponseEntity<Evento> castrarEvento(@RequestBody Evento evento){
 
-        eventoService.inserir(evento);
+        Evento eventoExiste = null;
+
+        eventoExiste = eventoService.buscaPorRegistro(evento.getRegistro());
+        if(eventoExiste == null) {
+            eventoService.inserir(evento);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
     }
 
     /**

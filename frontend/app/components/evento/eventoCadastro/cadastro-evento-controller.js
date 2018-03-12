@@ -58,10 +58,6 @@
     }
 
     function cadastraEvento() {
-        // eventoService.buscaEvento(vm.evento)
-        // .then(() => {
-        //     toastr.warning('Este registro já existe!', 'Error'); 
-        // })
             vm.evento.criadoPor = $rootScope.username;
             eventoService.cadastraEvento(vm.evento)
             .then(getCadastroSuccess)
@@ -72,11 +68,15 @@
                 $state.go('listar', {}, {reload: true});
             }
 
-            function getCadastroError() {
+            function getCadastroError(err) {
                 if(isEmpty(vm.evento)) {
                     toastr.warning('Nenhum valor informado', 'Error');
-                } else {            
+                } else {
+                    if(err.status == 409) {
+                        toastr.warning('Evento já existe no sistema!', 'Error')
+                    } else {            
                     toastr.error('Verifique os campos', 'Error');
+                    }
                 }
                 vm.cadastroSuccess = false;  
             }       
