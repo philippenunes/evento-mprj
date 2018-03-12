@@ -23,7 +23,7 @@
         }
 
         function closeModal() {
-            $uibModalInstance.dismiss();
+           $uibModalInstance.dismiss();
         }
     }
 })();
