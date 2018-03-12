@@ -91,10 +91,10 @@ public class EventoController {
     /**
      * Remove evento
      */
-    @RequestMapping(method = RequestMethod.DELETE, value = "/eventos/{id}")
-    public ResponseEntity<Evento> removeEvento(@PathVariable int id){
+    @RequestMapping(method = RequestMethod.DELETE, value = "/eventos/{registro}")
+    public ResponseEntity<Evento> removeEvento(@PathVariable int registro){
 
-        Evento eventoEncontrado = eventoService.buscaPorRegistro(id);
+        Evento eventoEncontrado = eventoService.buscaPorRegistro(registro);
 
         if(eventoEncontrado == null){
             return new ResponseEntity<Evento>(HttpStatus.NOT_FOUND);

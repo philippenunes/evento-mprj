@@ -11,20 +11,19 @@
         var vm = this;
         vm.alteraEvento = alteraEvento;
         vm.evento = objeto.evento;
+        vm.closeModal = closeModal;
 
         function alteraEvento() {
-           var promise = eventoService.alteraEvento(vm.evento)
-            .then(function(data) {
+           eventoService.alteraEvento(vm.evento)
+            .then(() => {
                 $uibModalInstance.close(true);
-                if(data === true) {
-                    toastr.success('O Registro foi alterado!', 'Sucesso');
-                  } 
-                 $state.go('listar'); 
-            }).catch(function() {
+            }).catch(() => {
                 $uibModalInstance.dismiss();
-                toastr.error('Verifique os campos!', 'Registro não alterado'); 
             });
-            return promise;
+        }
+
+        function closeModal() {
+            $uibModalInstance.close(false);
         }
     }
 })();

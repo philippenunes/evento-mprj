@@ -20,7 +20,7 @@
         var vm = this;
         vm.init = init;
         vm.closeModal = closeModal;
-        vm.excluiEvento = excluiEvento;
+        vm.encerraSolicitacao = encerraSolicitacao;
         vm.alteraEvento = alteraEvento;
         vm.isEmpty = isEmpty;
         vm.evento = objeto.evento;
@@ -52,10 +52,10 @@
             });
         }
 
-        function excluiEvento() {
+        function encerraSolicitacao() {
             return $uibModal.open({
-                templateUrl:"components/evento/eventoDetalhe/exclui-confirmacao.html",
-                controller: 'ModalExcluiConfirmacaoController',
+                templateUrl:"components/evento/eventoDetalhe/encerra-confirmacao.html",
+                controller: 'ModalEncerraSolicitacaoConfirmacaoController',
                 controllerAs: 'vm',
                 resolve: {
                     objeto: () => {

@@ -47,6 +47,16 @@
                         return {evento: vm.evento};
                    }
                 }
+            }).result
+            .then(function(data) {
+                
+                if(data === true) {
+                    toastr.success('O Registro foi alterado!', 'Sucesso');
+                  } 
+                 $state.go('listar'); 
+            }).catch(function() {
+                $uibModalInstance.dismiss();
+                toastr.error('Verifique os campos!', 'Registro não alterado'); 
             })
         }
      }

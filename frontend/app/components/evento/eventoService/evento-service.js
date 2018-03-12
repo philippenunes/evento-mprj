@@ -11,7 +11,7 @@
            cadastraEvento : cadastraEvento,
            alteraEvento : alteraEvento,
            buscaEvento : buscaEvento,
-           excluiEvento : excluiEvento,
+           encerraSolicitacao : encerraSolicitacao,
            listaEventos : listaEventos,
            listaPorParametro : listaPorParametro,
            exportarExcel : exportarExcel,
@@ -72,7 +72,7 @@
 
  // ----------------------------------------------------------------------------------------------------------------------------------------------//
 
-        function excluiEvento(evento) {
+        function encerraSolicitacao(evento) {
             var promise = $http.delete(CONSTANTS.API_URL_EVENTOS + evento.registro)
                 .then(getExcluiSuccess)
                 .catch(getExcluiError);
