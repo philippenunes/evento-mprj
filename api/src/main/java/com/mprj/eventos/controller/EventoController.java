@@ -70,7 +70,6 @@ public class EventoController {
 
          if(filter.getData() != null) {
              DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
-
              String inputData = String.valueOf(filter.getData());
              data = inputFormat.parse(inputData);
          }
