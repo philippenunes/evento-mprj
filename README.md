@@ -1,4 +1,4 @@
-Sistemas de cadastro de eventos do MPRJ v2.
+Sistema de cadastro de eventos do MPRJ v2.
 
 Sistema desenvolvido para fins de estudo.
 
