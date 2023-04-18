@@ -19,10 +19,10 @@
   "author": "Lennon Jesus <lennon.jesus@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "2.18.8",
+    "browser-sync": "2.29.1",
     "gulp": "3.9.1",
     "jasmine-core": "^2.6.4",
-    "karma": "1.4.1",
+    "karma": "6.4.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "1.1.0",
     "proxy-middleware": "0.15.0"
