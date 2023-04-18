@@ -19,7 +19,7 @@
   "author": "Lennon Jesus <lennon.jesus@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "2.18.8",
+    "browser-sync": "2.29.1",
     "gulp": "3.9.1",
     "jasmine-core": "^2.6.4",
     "karma": "1.4.1",
